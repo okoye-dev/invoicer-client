@@ -13,9 +13,9 @@ const shoePurchaseConfig = {
   discount: "10",
   vat: "7.5",
   items: [
-    { name: "Leather Sneakers", price: "15000", quantity: "1" },
-    { name: "Running Shoes", price: "12000", quantity: "1" },
-    { name: "Casual Loafers", price: "18000", quantity: "1" },
+    { name: "Leather Sneakers", price: "15000", quantity: "3" },
+    { name: "Running Shoes", price: "12000", quantity: "3" },
+    { name: "Casual Loafers", price: "18000", quantity: "3" },
   ],
   thankYouMessage: "Thank you for shopping with us!",
 };
