@@ -127,8 +127,8 @@ const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
     const total = calculateTotal();
 
     const rowSpacing = 8;
-    const labelX = 130;
-    const amountX = 190;
+    const labelX = 120;
+    const amountX = 200;
 
     doc.text("Sub-total:", labelX, yPosition);
     doc.text(formatCurrency(subtotal), amountX, yPosition, { align: "right" });
@@ -145,8 +145,8 @@ const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
 
     yPosition += rowSpacing + 5;
     doc.setFont("helvetica", "bold");
-    doc.setFillColor(230, 230, 230);
-    doc.rect(labelX, yPosition - 5, 60, 10, "F");
+    doc.setFillColor(200, 200, 200);
+    doc.rect(labelX, yPosition - 5, 80, 10, "F");
     doc.text("Total [NGN]:", labelX, yPosition);
     doc.text(formatCurrency(total), amountX, yPosition, { align: "right" });
 
