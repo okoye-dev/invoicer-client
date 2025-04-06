@@ -1,4 +1,4 @@
-# EduPro Official Web Client
+# Invoicer Official Web Client
 
 A modern AI web application built with:
 
