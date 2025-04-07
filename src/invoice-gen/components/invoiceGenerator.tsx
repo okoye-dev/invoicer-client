@@ -64,7 +64,9 @@ const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
 
     doc.setFont("helvetica", "bold");
     doc.setFontSize(18);
+    doc.setTextColor(0, 102, 204);
     doc.text("INVOICE", 160, 20);
+    doc.setTextColor(0, 0, 0);
 
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
@@ -74,7 +76,7 @@ const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
 
     doc.setFont("helvetica", "bold");
     doc.text("Balance Due", 160, 35);
-    doc.setTextColor(0, 102, 204);
+    doc.setTextColor(255, 0, 0);
     doc.text(formatCurrency(calculateTotal()), 160, 45);
     doc.setTextColor(0, 0, 0);
 
@@ -146,14 +148,16 @@ const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
     yPosition += rowSpacing + 5;
     doc.setFont("helvetica", "bold");
     doc.setFillColor(200, 200, 200);
-    doc.rect(labelX, yPosition - 5, 80, 10, "F");
+    doc.rect(labelX, yPosition - 5, 95, 10, "F");
     doc.text("Total [NGN]:", labelX, yPosition);
     doc.text(formatCurrency(total), amountX, yPosition, { align: "right" });
+    doc.setTextColor(255, 0, 0);
 
     yPosition += rowSpacing + 5;
     doc.setFont("helvetica", "normal");
     doc.text("Balance Due:", labelX, yPosition);
     doc.text(formatCurrency(total), amountX, yPosition, { align: "right" });
+    doc.setTextColor(0, 0, 0);
 
     doc.setFontSize(10);
     doc.text(
@@ -163,7 +167,7 @@ const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
       doc.internal.pageSize.height - 30
     );
     doc.setFont("helvetica", "bold");
-    doc.setTextColor(200, 0, 0);
+    doc.setTextColor(0, 102, 204);
     doc.text("Powered by e/emie", 20, doc.internal.pageSize.height - 20);
 
     doc.save(`Invoice_${config.customerName}.pdf`);
