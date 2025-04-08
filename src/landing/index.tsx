@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import Navbar from "@/landing/components/Navbar";
-import HeroSection from "@/landing/components/HeroSection";
-import FeaturesSection from "@/landing/components/FeaturesSection";
-import TestimonialsSection from "@/landing/components/TestimonialsSection";
-import FAQSection from "@/landing/components/FAQSection";
-import CTASection from "@/landing/components/CTASection";
-import Footer from "@/landing/components/Footer";
+// import Navbar from "@/landing/components/Navbar";
+// import HeroSection from "@/landing/components/HeroSection";
+// import FeaturesSection from "@/landing/components/FeaturesSection";
+// import TestimonialsSection from "@/landing/components/TestimonialsSection";
+// import FAQSection from "@/landing/components/FAQSection";
+// import CTASection from "@/landing/components/CTASection";
+// import Footer from "@/landing/components/Footer";
 import { motion } from "framer-motion";
 
 export const LandingPage = () => {
