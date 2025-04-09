@@ -6,6 +6,7 @@ import { useEffect } from "react";
 // import FAQSection from "@/landing/components/FAQSection";
 // import CTASection from "@/landing/components/CTASection";
 // import Footer from "@/landing/components/Footer";
+import InvoiceForm from "@/invoice-gen/components/invoiceForm";
 import { motion } from "framer-motion";
 
 export const LandingPage = () => {
@@ -24,8 +25,8 @@ export const LandingPage = () => {
       {/* <Navbar /> */}
       <main>
         Create quick invoices with AI
-        {/* <HeroSection />
-        <FeaturesSection />
+        <InvoiceForm />
+        {/*<FeaturesSection />
         <TestimonialsSection />
         <FAQSection />
         <CTASection /> */}
