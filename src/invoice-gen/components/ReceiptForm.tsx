@@ -6,7 +6,7 @@ import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
 import { Button } from "@/shared/components/ui/button";
 import { Textarea } from "@/shared/components/ui/textarea";
-import { InvoiceGenerator } from "./InvoiceGenerator";
+import { InvoiceGenerator } from "./invoiceGenerator";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/components/ui/card";
 
 export const ReceiptForm = () => {
@@ -62,11 +62,10 @@ export const ReceiptForm = () => {
         </CardHeader>
         <CardContent>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            {/* Company Info */}
             <div className="grid grid-cols-1 gap-4">
               <div>
                 <Label>Company Name</Label>
-                <Input {...form.register("companyName")} />
+                <Input className="mt-3" {...form.register("companyName")} />
                 {form.formState.errors.companyName && (
                   <p className="text-red-500 text-sm">
                     {form.formState.errors.companyName.message}
@@ -75,7 +74,7 @@ export const ReceiptForm = () => {
               </div>
               <div>
                 <Label>Company Address</Label>
-                <Textarea {...form.register("companyAddress")} />
+                <Textarea className="mt-3" {...form.register("companyAddress")} />
                 {form.formState.errors.companyAddress && (
                   <p className="text-red-500 text-sm">
                     {form.formState.errors.companyAddress.message}
@@ -84,7 +83,7 @@ export const ReceiptForm = () => {
               </div>
               <div>
                 <Label>Company Phone</Label>
-                <Input {...form.register("companyPhone")} />
+                <Input className="mt-3" {...form.register("companyPhone")} />
                 {form.formState.errors.companyPhone && (
                   <p className="text-red-500 text-sm">
                     {form.formState.errors.companyPhone.message}
@@ -96,7 +95,7 @@ export const ReceiptForm = () => {
             <div className="grid grid-cols-1 gap-4">
               <div>
                 <Label>Customer Name</Label>
-                <Input {...form.register("customerName")} />
+                <Input className="mt-3" {...form.register("customerName")} />
                 {form.formState.errors.customerName && (
                   <p className="text-red-500 text-sm">
                     {form.formState.errors.customerName.message}
@@ -105,7 +104,7 @@ export const ReceiptForm = () => {
               </div>
               <div>
                 <Label>Customer Address</Label>
-                <Textarea {...form.register("customerAddress")} />
+                <Textarea className="mt-3" {...form.register("customerAddress")} />
                 {form.formState.errors.customerAddress && (
                   <p className="text-red-500 text-sm">
                     {form.formState.errors.customerAddress.message}
@@ -114,33 +113,31 @@ export const ReceiptForm = () => {
               </div>
             </div>
 
-            {/* Invoice Info */}
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Label>Invoice Number</Label>
-                <Input {...form.register("invoiceNumber")} />
+                <Input className="mt-3" {...form.register("invoiceNumber")} />
               </div>
               <div>
                 <Label>Invoice Date</Label>
-                <Input type="date" {...form.register("invoiceDate")} />
+                <Input className="mt-3" type="date" {...form.register("invoiceDate")} />
               </div>
               <div>
                 <Label>Discount (%)</Label>
-                <Input type="number" {...form.register("discount")} />
+                <Input className="mt-3" type="number" {...form.register("discount")} />
               </div>
               <div>
                 <Label>VAT (%)</Label>
-                <Input type="number" {...form.register("vat")} />
+                <Input className="mt-3" type="number" {...form.register("vat")} />
               </div>
             </div>
 
-            {/* Items List */}
             <div className="space-y-4">
               <Label className="text-lg">Items</Label>
               {fields.map((field, index) => (
                 <div key={field.id} className="grid grid-cols-4 gap-2 items-end">
                   <div>
-                    <Input
+                    <Input  className="mt-3" 
                       placeholder="Item name"
                       {...form.register(`items.${index}.name`)}
                     />
@@ -151,7 +148,7 @@ export const ReceiptForm = () => {
                     )}
                   </div>
                   <div>
-                    <Input
+                    <Input  className="mt-3"
                       placeholder="Price"
                       type="number"
                       {...form.register(`items.${index}.price`)}
@@ -163,7 +160,7 @@ export const ReceiptForm = () => {
                     )}
                   </div>
                   <div>
-                    <Input
+                    <Input  className="mt-3"
                       placeholder="Quantity"
                       type="number"
                       {...form.register(`items.${index}.quantity`)}
@@ -184,7 +181,7 @@ export const ReceiptForm = () => {
                   </Button>
                 </div>
               ))}
-              <Button
+              <Button className="bg-blue-300"
                 type="button"
                 onClick={() => append({ name: "", price: "", quantity: "" })}
               >
@@ -199,10 +196,10 @@ export const ReceiptForm = () => {
 
             <div>
               <Label>Thank You Message</Label>
-              <Textarea {...form.register("thankYouMessage")} />
+              <Textarea className="mt-3" {...form.register("thankYouMessage")} />
             </div>
 
-            <Button type="submit">Generate Invoice</Button>
+            <Button className="bg-blue-300" type="submit">Generate Invoice</Button>
           </form>
         </CardContent>
         {invoiceConfig && (
