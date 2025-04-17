@@ -54,7 +54,7 @@ export const ReceiptForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-4">
+    <div className="max-w-3xl mt-[150px] mx-auto p-4">
       <Card>
         <CardHeader>
           <CardTitle>Create Invoice</CardTitle>

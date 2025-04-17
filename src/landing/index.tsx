@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-// import Navbar from "@/landing/components/Navbar";
-// import HeroSection from "@/landing/components/HeroSection";
-// import FeaturesSection from "@/landing/components/FeaturesSection";
-// import TestimonialsSection from "@/landing/components/TestimonialsSection";
-// import FAQSection from "@/landing/components/FAQSection";
-// import CTASection from "@/landing/components/CTASection";
-// import Footer from "@/landing/components/Footer";
-import { ReceiptForm } from "@/invoice-gen/components/ReceiptForm";
+import Navbar from "@/landing/components/Navbar";
+ import HeroSection from "@/landing/components/HeroSection";
+ import FeaturesSection from "@/landing/components/FeaturesSection";
+ import TestimonialsSection from "@/landing/components/TestimonialsSection";
+ import FAQSection from "@/landing/components/FAQSection";
+ import CTASection from "@/landing/components/CTASection";
+ import Footer from "@/landing/components/Footer";
+
 import { motion } from "framer-motion";
 
 export const LandingPage = () => {
@@ -22,16 +22,16 @@ export const LandingPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* <Navbar /> */}
+      <Navbar /> 
       <main>
-        Create quick invoices with AI
-        <ReceiptForm />
-        {/*<FeaturesSection />
+      
+        <HeroSection />
+        <FeaturesSection />
         <TestimonialsSection />
         <FAQSection />
-        <CTASection /> */}
+        <CTASection /> 
       </main>
-      {/* <Footer /> */}
+        <Footer /> 
     </motion.div>
   );
 };
