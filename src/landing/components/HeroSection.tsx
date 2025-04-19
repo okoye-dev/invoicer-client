@@ -1,11 +1,10 @@
 import { Button } from "@/shared/components/ui/button";
-import { ArrowRight, BookOpen, FlaskRound, File } from "lucide-react";
+import { TrendingUp, File, PiggyBank, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <div className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
-      {/* Background gradients with continuous animation */}
+    <div className="relative mt-[200px]  sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-70 animate-pulse-slow"></div>
         <div className="absolute -top-[40%] -left-[10%] w-[50%] h-[80%] rounded-full bg-purple-900/20 blur-3xl animate-pulse-slow"></div>
@@ -23,14 +22,14 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <motion.h1
-            className="tracking-tight font-extrabold text-dark-text leading-tight text-4xl md:text-5xl"
+            className="tracking- leading-relaxed font-extrabold text-dark-text  text-4xl md:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Transform Your Learning Experience
-            <br />
-            <span className="gradient-text">with EduPro AI</span>
+            Built To  Take Your Business From Surviving To 
+            {' '}
+            <span className="gradient-text">Booming</span>
           </motion.h1>
 
           <motion.p
@@ -39,8 +38,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Utilize AI-powered tools to convert your study materials into
-            interactive flashcards, quizzes, and comprehensive notes.
+            Easily manage your bookkeeping, send invoices quickly, and seanlesssly connect with customers.
           </motion.p>
 
           <motion.div
@@ -54,7 +52,7 @@ const HeroSection = () => {
               data-testid="start-learning-button"
             >
               Start Learning Now
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <PiggyBank className="ml-2 h-4 w-4" />
             </Button>
             <Button
               variant="outline"
@@ -84,28 +82,30 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Quick feature highlights */}
+          <div className="mt-20 ">
+          <div className="flex justify-center mb-6">
+          <Globe size={48} /> 
+          </div>
+            <p className="text-bold text-3xl">What if you could transform your business from a small <br /> brand to a global brand.</p>
+
+            <p className="mt-10 font-bold">that would mean</p>
+          </div>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: BookOpen,
-                title: "Interactive Flashcards",
-                description:
-                  "Generate flashcards with spaced repetition algorithms for effective learning",
-                delay: 0.9,
+                icon: PiggyBank,
+                title: "Increased Revenue",
+                
               },
               {
-                icon: FlaskRound,
-                title: "Personalized Quizzes",
-                description:
-                  "Create AI-generated quizzes that adapt to your knowledge gaps",
-                delay: 1.0,
+                icon: TrendingUp,
+                title: "Greater Impacts",
+                
               },
               {
                 icon: File,
-                title: "Smart Notes",
-                description:
-                  "Convert your PDFs and images into organized, searchable study notes",
-                delay: 1.1,
+                title: "More Job Opportunities",
+                
               },
             ].map((feature, index) => (
               <motion.div
@@ -113,7 +113,7 @@ const HeroSection = () => {
                 className="glass-card p-6 rounded-xl transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: feature.delay }}
+                transition={{ duration: 0.5, }}
                 whileHover={{
                   scale: 1.05,
                   boxShadow:
@@ -130,7 +130,7 @@ const HeroSection = () => {
                   {feature.title}
                 </h3>
                 <p className="text-sm md:text-base text-dark-muted opacity-90 leading-relaxed">
-                  {feature.description}
+                  {}
                 </p>
               </motion.div>
             ))}
