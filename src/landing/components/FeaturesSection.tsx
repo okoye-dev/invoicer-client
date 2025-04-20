@@ -93,7 +93,7 @@ const FeaturesSection = () => {
             Features
           </h2>
           <p className="mt-2 text-3xl md:text-4xl font-extrabold gradient-text leading-tight">
-            Everything you need to accelerate your learning
+            Ready To Ring in Huge Capital
           </p>
           <p className="mt-4 max-w-2xl text-base md:text-lg text-dark-muted mx-auto opacity-90">
             Our AI-powered platform is designed to help you master new skills
