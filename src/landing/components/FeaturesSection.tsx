@@ -1,52 +1,6 @@
-import {
-  Brain,
-  FileText,
-  Upload,
-  FolderKanban,
-  Award,
-  Gift,
-} from "lucide-react";
 import { motion } from "framer-motion";
 
-const features = [
-  {
-    name: "AI-Powered Invoicing",
-    description:
-      "Automatically generate professional invoices based on user inputs, past patterns, and business details — all with a single click.",
-    icon: Brain,
-  },
-  {
-    name: "Multi-Format Uploads",
-    description:
-      "Upload receipts, payment proofs, or expense docs in PDF or image format — our AI extracts and organizes key info instantly.",
-    icon: Upload,
-  },
-  {
-    name: "Smart Organization",
-    description:
-      "Tag and sort your invoices by clients, categories, or dates, and easily filter historical records for quick insights.",
-    icon: FolderKanban,
-  },
-  {
-    name: "Auto-Summarized Reports",
-    description:
-      "Turn your transaction data into readable summaries showing income, expenses, and profitability in real time.",
-    icon: FileText,
-  },
-  {
-    name: "Premium Power Tools",
-    description:
-      "Unlock powerful features like tax breakdowns, multi-currency invoicing, and scheduled recurring invoices.",
-    icon: Award,
-  },
-  {
-    name: "Referral Bonuses",
-    description:
-      "Earn credits and premium access when you refer clients or business owners to join the platform.",
-    icon: Gift,
-  },
-];
-
+import features from "../constants/features";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -72,7 +26,6 @@ const itemVariants = {
 const FeaturesSection = () => {
   return (
     <div className="py-16 sm:py-24 bg-dark-background relative">
-      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-50 animate-pulse-slow"></div>
         <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-600/70 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -131,7 +84,6 @@ const FeaturesSection = () => {
                   </div>
                 </div>
 
-                {/* Animated background glow */}
                 <div className="absolute -right-10 -bottom-10 w-24 h-24 bg-primary/5 rounded-full filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </motion.div>
             ))}
