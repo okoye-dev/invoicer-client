@@ -10,11 +10,10 @@ const Footer = () => {
               to="/"
               className="text-2xl font-bold bg-clip-text text-transparent bg-dark-gradient"
             >
-              EduPro AI
+              invoicer-client 
             </Link>
             <p className="mt-4 text-dark-muted text-sm">
-              Transform your study materials into interactive learning resources
-              with our AI-powered education platform.
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, facilis! Consectetur esse, impedit vel odio nemo vitae minima iure corrupti! Cupiditate tempora accusantium explicabo id cumque reiciendis quia velit perferendis..
             </p>
           </div>
 
@@ -176,7 +175,7 @@ const Footer = () => {
             </a>
           </div>
           <p className="mt-8 text-base text-dark-muted md:mt-0 md:order-1">
-            &copy; {new Date().getFullYear()} EduPro AI. All rights reserved.
+            &copy; {new Date().getFullYear()} Invoicer-client . All rights reserved.
           </p>
         </div>
       </div>

@@ -8,14 +8,14 @@ const HeroSection = () => {
     <div className="relative mt-[200px] sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-70 animate-pulse-slow"></div>
-        <div className="absolute -top-[40%] -left-[10%] w-[50%] h-[80%] rounded-full bg-purple-900/20 blur-3xl animate-pulse-slow"></div>
+        <div className="absolute -top-[40%] -left-[10%] w-[50%] h-[80%] rounded-full bg-blue-900/20 blur-3xl animate-pulse-slow"></div>
         <div
           className="absolute -bottom-[30%] -right-[10%] w-[60%] h-[70%] rounded-full bg-indigo-900/20 blur-3xl animate-pulse-slow"
           style={{ animationDelay: "0.5s" }}
         ></div>
-        <div className="absolute top-20 left-[20%] w-24 h-24 bg-gradient-to-r from-purple-500 to-indigo-500 to-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
+        <div className="absolute top-20 left-[20%] w-24 h-24 bg-gradient-to-r from-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"></div>
         <div
-          className="absolute bottom-20 right-[30%] w-32 h-32 bg-gradient-to-r from-indigo-500 via-purple-400 to-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"
+          className="absolute bottom-20 right-[30%] w-32 h-32 bg-gradient-to-r from-indigo-500 via-blue-400 to-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse-slow"
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
@@ -72,7 +72,7 @@ const HeroSection = () => {
             transition={{ duration: 0.7, delay: 0.8 }}
           >
             <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-indigo-900/20 to-blue-900/20 backdrop-blur-sm z-10 rounded-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-indigo-900/20 to-blue-900/20 backdrop-blur-sm z-10 rounded-xl"></div>
               <div className="absolute -inset-0.5 bg-conic-gradient rounded-xl blur-sm z-0 animate-pulse-glow"></div>
               <motion.img
                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
@@ -114,7 +114,7 @@ const HeroSection = () => {
                 className="glass-card p-6 rounded-xl transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0 }}
                 whileHover={{
                   scale: 1.05,
                   boxShadow:
@@ -122,7 +122,7 @@ const HeroSection = () => {
                 }}
               >
                 <motion.div
-                  className="bg-gradient-to-r from-purple-600/20 to-indigo-600/20 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto pulse-glow"
+                  className="bg-gradient-to-r from-blue-600/70 to-indigo-600/20 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto pulse-glow"
                   whileHover={{ rotate: 5 }}
                 >
                   <feature.icon className="h-6 w-6 text-primary" />
@@ -131,7 +131,6 @@ const HeroSection = () => {
                   {feature.title}
                 </h3>
                 <p className="text-sm md:text-base text-dark-muted opacity-90 leading-relaxed">
-                  {/* You can add feature descriptions here */}
                 </p>
               </motion.div>
             ))}

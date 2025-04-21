@@ -75,9 +75,9 @@ const FeaturesSection = () => {
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-50 animate-pulse-slow"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-600/70 rounded-full blur-3xl animate-pulse-slow"></div>
         <div
-          className="absolute -bottom-20 -left-20 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow"
+          className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-600/70 rounded-full blur-3xl animate-pulse-slow"
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
@@ -97,8 +97,8 @@ const FeaturesSection = () => {
             Ready To Ring in Huge Capital
           </p>
           <p className="mt-4 max-w-2xl text-base md:text-lg text-dark-muted mx-auto opacity-90">
-            Our AI-powered platform is designed to help you master new skills
-            faster and more effectively by transforming your study materials.
+            Our platform is designed to help you master new skills
+            faster and more effectively by helping you manage and track your expenses.
           </p>
         </motion.div>
 
@@ -118,7 +118,7 @@ const FeaturesSection = () => {
                 whileHover={{ scale: 1.03, y: -5 }}
               >
                 <div>
-                  <div className="absolute h-12 w-12 rounded-md bg-gradient-to-r from-purple-700 to-indigo-700 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                  <div className="absolute h-12 w-12 rounded-md bg-gradient-to-r from-blue-700 to-indigo-700 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                     <feature.icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <div className="ml-16">

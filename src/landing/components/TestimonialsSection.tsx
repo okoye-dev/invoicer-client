@@ -5,14 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Alex Johnson",
+    name: "Alex Esther",
     role: "Medical Student",
     image:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-    text: "EduPro AI revolutionized how I study for my medical exams. The flashcards with spaced repetition helped me memorize complex terminology in half the time it used to take.",
+    text: "Invoicer AI revolutionized how I study for my medical exams. The flashcards with spaced repetition helped me memorize complex terminology in half the time it used to take.",
   },
   {
-    name: "Sarah Williams",
+    name: "real Moses",
     role: "Computer Science Major",
     image:
       "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
@@ -106,7 +106,7 @@ const TestimonialsSection = () => {
       {/* Background gradients with continuous animation */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-40 animate-pulse-slow"></div>
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-600/70 rounded-full blur-3xl animate-pulse-slow"></div>
         <div
           className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow"
           style={{ animationDelay: "1s" }}
@@ -135,7 +135,7 @@ const TestimonialsSection = () => {
             Testimonials
           </h2>
           <p className="mt-2 text-3xl md:text-4xl font-extrabold gradient-text leading-tight">
-            What our students are saying
+            What our Beta-users saying
           </p>
         </motion.div>
 
@@ -160,12 +160,12 @@ const TestimonialsSection = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {/* decorative elements */}
-                    <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+                    <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-blue-500 to-indigo-500"></div>
                     <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-600/5 rounded-full blur-xl"></div>
 
                     <div className="flex justify-center mb-4">
                       <motion.div
-                        className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-700 to-indigo-700 flex items-center justify-center text-white"
+                        className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-700 to-indigo-700 flex items-center justify-center text-white"
                         whileHover={{ rotate: 180 }}
                         transition={{ duration: 0.5 }}
                       >
@@ -223,12 +223,12 @@ const TestimonialsSection = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {/* decorative elements */}
-                    <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+                    <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-blue-500 to-indigo-500"></div>
                     <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-600/5 rounded-full blur-xl"></div>
 
                     <div className="flex justify-center mb-4">
                       <motion.div
-                        className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-700 to-indigo-700 flex items-center justify-center text-white"
+                        className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-700 to-indigo-700 flex items-center justify-center text-white"
                         whileHover={{ rotate: 180 }}
                         transition={{ duration: 0.5 }}
                       >
@@ -286,7 +286,7 @@ const TestimonialsSection = () => {
                   className={`h-2.5 w-2.5 rounded-full transition-all ${
                     testimonialsToShow.includes(index)
                       ? " scale-110 bg-dark-muted"
-                      : "bg-gradient-to-r from-purple-500 to-indigo-500"
+                      : "bg-gradient-to-r from-blue-500 to-indigo-500"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />

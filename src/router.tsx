@@ -3,7 +3,7 @@ import { LandingPage } from "@/landing";
 import { ChatPage } from "@/chat";
 import Layout from "./layout";
 import Pricing from "./landing/pricing/Pricing";
-import { ReceiptForm } from "@/invoice-gen/components/ReceiptForm"; // ✅ Import your component
+import { ReceiptForm } from "@/invoice-gen/components/ReceiptForm"; 
 
 export const AppRoutes = () => {
   return (
