@@ -3,6 +3,7 @@ import { LandingPage } from "@/landing";
 import { ChatPage } from "@/chat";
 import Layout from "./layout";
 import Pricing from "./landing/pricing/Pricing";
+import { ReceiptForm } from "@/invoice-gen/components/ReceiptForm"; // ✅ Import your component
 
 export const AppRoutes = () => {
   return (
@@ -16,7 +17,8 @@ export const AppRoutes = () => {
           {/* Chat routes */}
           <Route path="/chat" element={<ChatPage />} />
 
-          {/* User routes */}
+          {/* ✅ ReceiptForm route */}
+          <Route path="/ReceiptForm" element={<ReceiptForm />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -10,42 +10,43 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    name: "AI-Powered Study Aids",
+    name: "AI-Powered Invoicing",
     description:
-      "Generate comprehensive notes, interactive flashcards with spaced repetition, and personalized quizzes from your materials.",
+      "Automatically generate professional invoices based on user inputs, past patterns, and business details — all with a single click.",
     icon: Brain,
   },
   {
-    name: "Versatile Material Uploads",
+    name: "Multi-Format Uploads",
     description:
-      "Support for PDFs, images, and physical copies through advanced image-to-text conversion.",
+      "Upload receipts, payment proofs, or expense docs in PDF or image format — our AI extracts and organizes key info instantly.",
     icon: Upload,
   },
   {
-    name: "Organized Content Management",
+    name: "Smart Organization",
     description:
-      "Organize your study materials with metadata tagging by lecturer, department, topic, and year.",
+      "Tag and sort your invoices by clients, categories, or dates, and easily filter historical records for quick insights.",
     icon: FolderKanban,
   },
   {
-    name: "Smart Notes Generation",
+    name: "Auto-Summarized Reports",
     description:
-      "Transform your lecture materials into concise, well-structured notes with key concepts highlighted.",
+      "Turn your transaction data into readable summaries showing income, expenses, and profitability in real time.",
     icon: FileText,
   },
   {
-    name: "Premium Features",
+    name: "Premium Power Tools",
     description:
-      "Subscribe for higher rate limits, advanced AI features, and priority customer support.",
+      "Unlock powerful features like tax breakdowns, multi-currency invoicing, and scheduled recurring invoices.",
     icon: Award,
   },
   {
-    name: "Referral Program",
+    name: "Referral Bonuses",
     description:
-      "Invite friends to earn additional credits and unlock premium features for both of you.",
+      "Earn credits and premium access when you refer clients or business owners to join the platform.",
     icon: Gift,
   },
 ];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },

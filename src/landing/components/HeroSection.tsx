@@ -1,10 +1,11 @@
 import { Button } from "@/shared/components/ui/button";
 import { TrendingUp, File, PiggyBank, Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="relative mt-[200px]  sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
+    <div className="relative mt-[200px] sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-70 animate-pulse-slow"></div>
         <div className="absolute -top-[40%] -left-[10%] w-[50%] h-[80%] rounded-full bg-purple-900/20 blur-3xl animate-pulse-slow"></div>
@@ -22,13 +23,12 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <motion.h1
-            className="tracking- leading-relaxed font-extrabold text-dark-text  text-4xl md:text-5xl"
+            className="tracking- leading-relaxed font-extrabold text-dark-text text-4xl md:text-5xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Built To  Take Your Business From Surviving To 
-            {' '}
+            Built To Take Your Business From Surviving To{" "}
             <span className="gradient-text">Booming</span>
           </motion.h1>
 
@@ -38,7 +38,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Easily manage your bookkeeping, send invoices quickly, and seanlesssly connect with customers.
+            Easily manage your bookkeeping, send invoices quickly, and seamlessly connect with customers.
           </motion.p>
 
           <motion.div
@@ -54,12 +54,15 @@ const HeroSection = () => {
               Start Learning Now
               <PiggyBank className="ml-2 h-4 w-4" />
             </Button>
-            <Button
-              variant="outline"
-              className="btn-outline px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
-            >
-              View Features
-            </Button>
+
+            <Link to="/ReceiptForm">
+              <Button
+                variant="outline"
+                className="btn-outline px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
+              >
+                Create a receipt
+              </Button>
+            </Link>
           </motion.div>
 
           <motion.div
@@ -81,31 +84,29 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Quick feature highlights */}
-          <div className="mt-20 ">
-          <div className="flex justify-center mb-6">
-          <Globe size={48} /> 
-          </div>
-            <p className="text-bold text-3xl">What if you could transform your business from a small <br /> brand to a global brand.</p>
-
+          <div className="mt-20">
+            <div className="flex justify-center mb-6">
+              <Globe size={48} />
+            </div>
+            <p className="text-bold text-3xl">
+              What if you could transform your business from a small <br /> brand to a global brand.
+            </p>
             <p className="mt-10 font-bold">that would mean</p>
           </div>
+
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 icon: PiggyBank,
                 title: "Increased Revenue",
-                
               },
               {
                 icon: TrendingUp,
                 title: "Greater Impacts",
-                
               },
               {
                 icon: File,
                 title: "More Job Opportunities",
-                
               },
             ].map((feature, index) => (
               <motion.div
@@ -113,7 +114,7 @@ const HeroSection = () => {
                 className="glass-card p-6 rounded-xl transition-all"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, }}
+                transition={{ duration: 0.5 }}
                 whileHover={{
                   scale: 1.05,
                   boxShadow:
@@ -130,7 +131,7 @@ const HeroSection = () => {
                   {feature.title}
                 </h3>
                 <p className="text-sm md:text-base text-dark-muted opacity-90 leading-relaxed">
-                  {}
+                  {/* You can add feature descriptions here */}
                 </p>
               </motion.div>
             ))}
