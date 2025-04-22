@@ -8,8 +8,14 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <nav className="absolute top-0 left-0 right-0 mt-10 mx-20 bg-[#03192F] rounded-2xl py-4">
+    <nav className="absolute top-0 left-0 right-0 mt-10 mx-20 bg-[#03192F] rounded-2xl py-4 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
@@ -22,38 +28,34 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              <Link
-                to="/"
+              <a
+                href="#"
+                onClick={scrollToTop}
                 className="px-3 py-2 text-sm font-medium text-white transition-colors"
-                
               >
                 Home
-              </Link>
-              <Link
-                to="/courses"
+              </a>
+              <a
+                href="#features"
                 className="px-3 py-2 text-sm font-medium text-white transition-colors"
-                
               >
                 Features
-              </Link>
+              </a>
               <Link
                 to="/pricing"
                 className="px-3 py-2 text-sm font-medium text-white transition-colors"
-                
               >
                 Programs
               </Link>
               <Link
                 to="/about"
                 className="px-3 py-2 text-sm font-medium text-white transition-colors"
-                
               >
                 Blogs
               </Link>
               <Link
-                to="/about"
+                to="/pricing"
                 className="px-3 py-2 text-sm font-medium text-white transition-colors"
-                
               >
                 Pricing
               </Link>
@@ -95,46 +97,51 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden neo-blur border-b border-white/10">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link
-              to="/"
+            <a
+              href="#"
+              onClick={(e) => {
+                scrollToTop(e);
+                toggleMenu();
+              }}
               className="block px-3 py-2 rounded-md text-base font-medium text-white"
-              
-              onClick={toggleMenu}
             >
               Home
-            </Link>
-            <Link
-              to="/courses"
+            </a>
+            <a
+              href="#features"
+              onClick={() => setIsMenuOpen(false)}
               className="block px-3 py-2 rounded-md text-base font-medium text-white"
-              
-              onClick={toggleMenu}
             >
-              Courses
-            </Link>
+              Features
+            </a>
             <Link
               to="/pricing"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white"
-              
               onClick={toggleMenu}
+              className="block px-3 py-2 rounded-md text-base font-medium text-white"
             >
-              Pricing
+              Programs
             </Link>
             <Link
               to="/about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-white"
-             
               onClick={toggleMenu}
+              className="block px-3 py-2 rounded-md text-base font-medium text-white"
             >
-              About
+              Blogs
+            </Link>
+            <Link
+              to="/pricing"
+              onClick={toggleMenu}
+              className="block px-3 py-2 rounded-md text-base font-medium text-white"
+            >
+              Pricing
             </Link>
           </div>
           <div className="pt-4 pb-3 border-t border-white/10">
             <div className="flex items-center px-5">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 w-full">
                 <Button
                   variant="outline"
                   className="w-full font-medium mb-2 border-white/20"
-                  
                 >
                   Sign in
                 </Button>
@@ -149,4 +156,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;

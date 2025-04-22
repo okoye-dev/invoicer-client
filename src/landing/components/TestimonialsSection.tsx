@@ -1,4 +1,3 @@
-// components/TestimonialsSection.tsx
 import { useState, useEffect } from "react";
 import { Quote } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
