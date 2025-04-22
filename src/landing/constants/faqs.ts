@@ -1,28 +1,28 @@
 export const faqs = [
     {
-      question: "How does EduPro AI transform my study materials?",
+      question: "How does Invoicer help transform my business?",
       answer:
-        "EduPro AI uses advanced machine learning algorithms to analyze your uploaded materials (PDFs, images, or text) and extract key concepts. It then organizes this information into structured notes, interactive flashcards with spaced repetition scheduling, and personalized quizzes that adapt to your knowledge gaps.",
+        "Invoicer simplifies your invoicing and expense tracking process. It helps you create professional invoices, track payments, manage clients, and monitor your cash flow — all from one easy-to-use dashboard.",
     },
     {
-      question: "What types of files can I upload?",
+      question: "What types of invoices can I create?",
       answer:
-        "You can upload PDFs, images of printed or handwritten notes (through our OCR technology), Word documents, PowerPoint presentations, and plain text files. Our system processes these materials and converts them into interactive study content.",
+        "You can generate invoices for services, products, recurring payments, and even customized templates with your branding. Whether you’re billing hourly or by project, Invoicer has you covered.",
     },
     {
-      question: "How accurate is the AI in generating questions?",
+      question: "Can I track my income and expenses too?",
       answer:
-        "Our AI generates questions with a high degree of accuracy by identifying key concepts and relationships within your study materials. The system continuously improves through machine learning, becoming more accurate with usage. You can also edit or refine any AI-generated content if needed.",
+        "Yes! Invoicer lets you log both income and expenses, categorize them, and view detailed reports. You’ll always know where your money is going and how much profit you’re making.",
     },
     {
-      question: "Can I collaborate with other students?",
+      question: "Can I collaborate with my team or accountant?",
       answer:
-        "Yes, our Team and Enterprise plans offer collaboration features that allow you to share study materials, flashcards, and notes with classmates. You can create study groups, assign different sections to team members, and track collective progress.",
+        "Absolutely. You can invite team members or your accountant to your dashboard with limited or full access. This makes collaboration and financial reporting seamless.",
     },
     {
-      question: "Is my data secure and private?",
+      question: "Is my financial data secure?",
       answer:
-        "Absolutely. We employ bank-level encryption for all uploaded content and personal information. Your study materials remain private to you unless you explicitly choose to share them. We never use your content to train our AI without explicit permission.",
+        "Definitely. We use bank-level encryption to protect your data. All your business information, invoices, and financial records are safe, private, and backed up regularly.",
     },
   ];
   

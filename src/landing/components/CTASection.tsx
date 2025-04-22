@@ -45,7 +45,7 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                Ready to transform your learning experience?
+                Ready to transform your business experience?
               </motion.h2>
 
               <motion.p
@@ -55,8 +55,7 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Join thousands of students who are already using EduPro AI to
-                study smarter, not harder. Get started with a 7-day free trial.
+                Join thousands of entrepreneurs already using Invoicer to simplify finances and take control. Get started with a 7-day free trial.
               </motion.p>
 
               <motion.div
@@ -113,10 +112,10 @@ const CTASection = () => {
                 </div>
                 <ul className="space-y-2 text-dark-muted">
                   {[
-                    "Unlimited study material uploads",
-                    "Advanced AI-generated questions",
-                    "Priority customer support",
-                    "Export notes in multiple formats",
+                    "Unlimited invoice generation",
+                    "Automated expense tracking",
+                    "PDF export & email sending",
+                    "Smart financial summaries",
                   ].map((item, index) => (
                     <motion.li
                       key={index}
@@ -157,9 +156,9 @@ const CTASection = () => {
                 <ul className="space-y-2 text-dark-muted">
                   {[
                     "All Premium features included",
-                    "Team collaboration tools",
-                    "Shared study materials library",
-                    "Advanced analytics dashboard",
+                    "Multi-user account access",
+                    "Shared invoice history",
+                    "Team-level financial reporting",
                   ].map((item, index) => (
                     <motion.li
                       key={index}

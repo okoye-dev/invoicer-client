@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-import { faqs } from "../constants/faqs"; 
+import { faqs } from "../constants/faqs";
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
@@ -36,8 +36,8 @@ const FAQSection = () => {
             Frequently Asked Questions
           </p>
           <p className="mt-4 max-w-2xl text-base md:text-lg text-dark-muted mx-auto opacity-90 leading-relaxed">
-            Find answers to common questions about our platform and how it can
-            enhance your learning experience.
+            Everything you need to know about using Invoicer—from managing your
+            invoices and tracking payments to customizing your dashboard and plans.
           </p>
         </motion.div>
 

@@ -5,17 +5,23 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const scrollToSection = (id: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <nav className="absolute top-0 left-0 right-0 mt-10 mx-20 bg-[#03192F] rounded-2xl py-4 z-50">
+    <nav className="absolute top-6 left-0 right-0 mx-20 bg-[#03192F] rounded-2xl py-4 z-50 shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
@@ -37,6 +43,7 @@ const Navbar = () => {
               </a>
               <a
                 href="#features"
+                onClick={scrollToSection("#features")}
                 className="px-3 py-2 text-sm font-medium text-white transition-colors"
               >
                 Features
@@ -109,7 +116,10 @@ const Navbar = () => {
             </a>
             <a
               href="#features"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                scrollToSection("#features")(e);
+                toggleMenu();
+              }}
               className="block px-3 py-2 rounded-md text-base font-medium text-white"
             >
               Features

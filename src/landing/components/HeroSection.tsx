@@ -2,6 +2,7 @@ import { Button } from "@/shared/components/ui/button";
 import { TrendingUp, File, PiggyBank, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import hero from "@/assets/dashboard.jpg"
 
 const HeroSection = () => {
   return (
@@ -48,7 +49,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             <Button
-              className="btn-primary px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
+              className="btn-primary  bg-[#03192F] text-white px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
               data-testid="start-learning-button"
             >
               Start Learning Now
@@ -58,7 +59,7 @@ const HeroSection = () => {
             <Link to="/ReceiptForm">
               <Button
                 variant="outline"
-                className="btn-outline px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
+                className="btn-outline  bg-[#03192F] text-white px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
               >
                 Create a receipt
               </Button>
@@ -75,7 +76,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-indigo-900/20 to-blue-900/20 backdrop-blur-sm z-10 rounded-xl"></div>
               <div className="absolute -inset-0.5 bg-conic-gradient rounded-xl blur-sm z-0 animate-pulse-glow"></div>
               <motion.img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                src={hero}
                 alt="Learning platform dashboard"
                 className="w-full rounded-xl shadow-lg relative z-10"
                 whileHover={{ scale: 1.02 }}
