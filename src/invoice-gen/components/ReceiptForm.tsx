@@ -1,64 +1,33 @@
-import { useForm, useFieldArray } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { receiptSchema, ReceiptFormData, InvoiceConfig } from "../constants/invoice";
+import { useReceiptForm } from "../hooks/useReceiptForm";
+import { useReceiptFormFields } from "../constants/useFieldArray";
 import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
 import { Button } from "@/shared/components/ui/button";
 import { Textarea } from "@/shared/components/ui/textarea";
 import { InvoiceGenerator } from "./invoiceGenerator";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/shared/components/ui/card";
+import Navbar from "@/landing/components/Navbar";
 
 export const ReceiptForm = () => {
-  const [invoiceConfig, setInvoiceConfig] = useState<InvoiceConfig | null>(null);
-
-  const form = useForm<ReceiptFormData>({
-    resolver: zodResolver(receiptSchema),
-    defaultValues: {
-      companyName: "",
-      companyAddress: "",
-      companyPhone: "",
-      customerName: "",
-      customerAddress: "",
-      invoiceNumber: "",
-      invoiceDate: "",
-      discount: "",
-      vat: "",
-      thankYouMessage: "",
-      items: [{ name: "", price: "", quantity: "" }],
-    },
-  });
-
-  const { fields, append, remove } = useFieldArray({
-    control: form.control,
-    name: "items",
-  });
-
-  const onSubmit = (data: ReceiptFormData) => {
-    const config: InvoiceConfig = {
-      companyName: data.companyName,
-      companyAddress: data.companyAddress,
-      companyPhone: data.companyPhone,
-      customerName: data.customerName,
-      customerAddress: data.customerAddress,
-      invoiceNumber: data.invoiceNumber || "",
-      invoiceDate: data.invoiceDate || "",
-      discount: data.discount || "0",
-      vat: data.vat || "0",
-      thankYouMessage: data.thankYouMessage || "",
-      items: data.items,
-      dueDate: undefined,
-      logoBase: undefined,
-    };
-    setInvoiceConfig(config);
-  };
+  const { form, onSubmit, invoiceConfig } = useReceiptForm();
+  const { fields, append, remove } = useReceiptFormFields(form.control);
 
   return (
+    <><Navbar />
     <div className="max-w-3xl mt-[150px] mx-auto p-4">
       <Card>
         <CardHeader>
           <CardTitle>Create Invoice</CardTitle>
-          <CardDescription>Fill in the details below to generate a professional invoice.</CardDescription>
+          <CardDescription>
+            Fill in the details below to generate a professional invoice.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -120,11 +89,17 @@ export const ReceiptForm = () => {
               </div>
               <div>
                 <Label>Invoice Date</Label>
-                <Input className="mt-3" type="date" {...form.register("invoiceDate")} />
+                <Input
+                  className="mt-3"
+                  type="date"
+                  {...form.register("invoiceDate")} />
               </div>
               <div>
                 <Label>Discount (%)</Label>
-                <Input className="mt-3" type="number" {...form.register("discount")} />
+                <Input
+                  className="mt-3"
+                  type="number"
+                  {...form.register("discount")} />
               </div>
               <div>
                 <Label>VAT (%)</Label>
@@ -137,10 +112,10 @@ export const ReceiptForm = () => {
               {fields.map((field, index) => (
                 <div key={field.id} className="grid grid-cols-4 gap-2 items-end">
                   <div>
-                    <Input  className="mt-3" 
+                    <Input
+                      className="mt-3"
                       placeholder="Item name"
-                      {...form.register(`items.${index}.name`)}
-                    />
+                      {...form.register(`items.${index}.name`)} />
                     {form.formState.errors.items?.[index]?.name && (
                       <p className="text-red-500 text-sm">
                         {form.formState.errors.items[index]?.name?.message}
@@ -148,11 +123,11 @@ export const ReceiptForm = () => {
                     )}
                   </div>
                   <div>
-                    <Input  className="mt-3"
+                    <Input
+                      className="mt-3"
                       placeholder="Price"
                       type="number"
-                      {...form.register(`items.${index}.price`)}
-                    />
+                      {...form.register(`items.${index}.price`)} />
                     {form.formState.errors.items?.[index]?.price && (
                       <p className="text-red-500 text-sm">
                         {form.formState.errors.items[index]?.price?.message}
@@ -160,11 +135,11 @@ export const ReceiptForm = () => {
                     )}
                   </div>
                   <div>
-                    <Input  className="mt-3"
+                    <Input
+                      className="mt-3"
                       placeholder="Quantity"
                       type="number"
-                      {...form.register(`items.${index}.quantity`)}
-                    />
+                      {...form.register(`items.${index}.quantity`)} />
                     {form.formState.errors.items?.[index]?.quantity && (
                       <p className="text-red-500 text-sm">
                         {form.formState.errors.items[index]?.quantity?.message}
@@ -181,7 +156,8 @@ export const ReceiptForm = () => {
                   </Button>
                 </div>
               ))}
-              <Button className="bg-blue-300"
+              <Button
+                className="bg-blue-300"
                 type="button"
                 onClick={() => append({ name: "", price: "", quantity: "" })}
               >
@@ -199,7 +175,9 @@ export const ReceiptForm = () => {
               <Textarea className="mt-3" {...form.register("thankYouMessage")} />
             </div>
 
-            <Button className="bg-blue-300" type="submit">Generate Invoice</Button>
+            <Button className="bg-blue-300" type="submit">
+              Generate Invoice
+            </Button>
           </form>
         </CardContent>
         {invoiceConfig && (
@@ -208,6 +186,6 @@ export const ReceiptForm = () => {
           </CardFooter>
         )}
       </Card>
-    </div>
+    </div></>
   );
 };

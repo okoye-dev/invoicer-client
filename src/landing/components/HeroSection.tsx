@@ -48,20 +48,14 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Button
-              className="btn-primary  bg-[#03192F] text-white px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
-              data-testid="start-learning-button"
-            >
-              Start Learning Now
-              <PiggyBank className="ml-2 h-4 w-4" />
-            </Button>
+            
 
             <Link to="/ReceiptForm">
               <Button
                 variant="outline"
-                className="btn-outline  bg-[#03192F] text-white px-6 py-3 text-sm font-medium hover:scale-105 cursor-pointer"
+                className="btn-outline  bg-[#03192F] text-white px-13 py-5 text-sm font-medium hover:scale-105 rounded-2xl cursor-pointer"
               >
-                Create a receipt
+                Create an Invoice
               </Button>
             </Link>
           </motion.div>
