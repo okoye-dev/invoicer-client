@@ -2,8 +2,11 @@ import { Button } from "@/shared/components/ui/button";
 import { ArrowRight, Crown, Users } from "lucide-react";
 import { Separator } from "@/shared/components/ui/separator";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="py-16 sm:py-24 bg-dark-background relative">
       <div className="absolute inset-0 overflow-hidden -z-10">
@@ -72,6 +75,7 @@ const CTASection = () => {
                 <Button
                   variant="outline"
                   className="btn-outline px-8 py-6 text-sm font-medium cursor-pointer"
+                  onClick={() => navigate("/pricing")}
                 >
                   Learn More
                 </Button>
