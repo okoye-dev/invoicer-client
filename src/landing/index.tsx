@@ -6,7 +6,6 @@ import { useEffect } from "react";
 // import FAQSection from "@/landing/components/FAQSection";
 // import CTASection from "@/landing/components/CTASection";
 // import Footer from "@/landing/components/Footer";
-import InvoiceForm from "@/invoice-gen/components/invoiceForm";
 import { motion } from "framer-motion";
 
 export const LandingPage = () => {
@@ -22,16 +21,16 @@ export const LandingPage = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* <Navbar /> */}
+      <Navbar /> 
       <main>
         Create quick invoices with AI
-        <InvoiceForm />
-        {/*<FeaturesSection />
+        {/* <HeroSection />
+        <FeaturesSection />
         <TestimonialsSection />
         <FAQSection />
-        <CTASection /> */}
+        <CTASection /> 
       </main>
-      {/* <Footer /> */}
+        <Footer /> 
     </motion.div>
   );
 };

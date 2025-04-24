@@ -2,16 +2,18 @@ import { Button } from "@/shared/components/ui/button";
 import { ArrowRight, Crown, Users } from "lucide-react";
 import { Separator } from "@/shared/components/ui/separator";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const CTASection = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="py-16 sm:py-24 bg-dark-background relative">
-      {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-50 animate-pulse-slow"></div>
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-600/70 rounded-full blur-3xl animate-pulse-slow"></div>
         <div
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow"
+          className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-indigo-600/70 rounded-full blur-3xl animate-pulse-slow"
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
@@ -24,7 +26,6 @@ const CTASection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          {/* Background decorative elements */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
             <motion.div
               className="absolute -top-10 -right-10 w-40 h-40 bg-white/5 rounded-full"
@@ -47,7 +48,7 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
               >
-                Ready to transform your learning experience?
+                Ready to transform your business experience?
               </motion.h2>
 
               <motion.p
@@ -57,8 +58,7 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Join thousands of students who are already using EduPro AI to
-                study smarter, not harder. Get started with a 7-day free trial.
+                Join thousands of entrepreneurs already using Invoicer to simplify finances and take control. Get started with a 7-day free trial.
               </motion.p>
 
               <motion.div
@@ -75,6 +75,7 @@ const CTASection = () => {
                 <Button
                   variant="outline"
                   className="btn-outline px-8 py-6 text-sm font-medium cursor-pointer"
+                  onClick={() => navigate("/pricing")}
                 >
                   Learn More
                 </Button>
@@ -115,10 +116,10 @@ const CTASection = () => {
                 </div>
                 <ul className="space-y-2 text-dark-muted">
                   {[
-                    "Unlimited study material uploads",
-                    "Advanced AI-generated questions",
-                    "Priority customer support",
-                    "Export notes in multiple formats",
+                    "Unlimited invoice generation",
+                    "Automated expense tracking",
+                    "PDF export & email sending",
+                    "Smart financial summaries",
                   ].map((item, index) => (
                     <motion.li
                       key={index}
@@ -159,9 +160,9 @@ const CTASection = () => {
                 <ul className="space-y-2 text-dark-muted">
                   {[
                     "All Premium features included",
-                    "Team collaboration tools",
-                    "Shared study materials library",
-                    "Advanced analytics dashboard",
+                    "Multi-user account access",
+                    "Shared invoice history",
+                    "Team-level financial reporting",
                   ].map((item, index) => (
                     <motion.li
                       key={index}
