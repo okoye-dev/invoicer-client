@@ -24,7 +24,6 @@ export const LandingPage = () => {
     >
       <Navbar /> 
       <main>
-      
         <HeroSection />
         <FeaturesSection />
         <TestimonialsSection />
