@@ -2,8 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LandingPage } from "@/landing";
 import { ChatPage } from "@/chat";
 import Layout from "./layout";
-import Pricing from "./landing/pricing/Pricing";
-import { ReceiptForm } from "@/invoice-gen/components/ReceiptForm"; 
+import { ReceiptForm } from "@/invoice-gen/components/ReceiptForm";
 
 export const AppRoutes = () => {
   return (
@@ -12,7 +11,6 @@ export const AppRoutes = () => {
         <Routes>
           {/* Landing Page */}
           <Route path="/" element={<LandingPage />} />
-          <Route path="/pricing" element={<Pricing />} />
 
           {/* Chat routes */}
           <Route path="/chat" element={<ChatPage />} />
