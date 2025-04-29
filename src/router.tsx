@@ -1,20 +1,32 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layout";
-import { ReceiptForm } from "@/invoice-gen/components/ReceiptForm";
+import SignUp from "@/auth/components/SignUp";
+import SignIn from "@/auth/components/SignIn"; 
 
 export const AppRoutes = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          {/* Landing Page */}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Layout>
+              <SignUp />
+            </Layout>
+          }
+        />
 
-          {/* Chat routes */}
+        <Route
+          path="/signin"
+          element={
+            <Layout>
+              <SignIn />
+            </Layout>
+          }
+        />
 
-          {/* ✅ ReceiptForm route */}
-          <Route path="/ReceiptForm" element={<ReceiptForm />} />
-        </Routes>
-      </Layout>
+        <Route path="*" element={<div>404 - Page not found</div>} />
+      </Routes>
     </BrowserRouter>
   );
 };
