@@ -8,7 +8,7 @@ export const AppRoutes = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/"
+          path="/signup"
           element={
             <Layout>
               <SignUp />

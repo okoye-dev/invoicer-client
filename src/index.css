@@ -2,3 +2,12 @@
 @import "@fontsource/inter";
 @import "tw-animate-css";
 
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 0%;
+  width: 0%;
+  font-family: "Inter", sans-serif;
+}
