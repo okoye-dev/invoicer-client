@@ -22,7 +22,7 @@ const SignIn = () => {
 
   const onSubmit = (data: SignInData) => {
     console.log("Form submitted:", data);
-    navigate("/dashboard"); // redirect to dashboard
+    navigate("/dashboard"); 
   };
 
   return (

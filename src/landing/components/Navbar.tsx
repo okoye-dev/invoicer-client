@@ -7,7 +7,6 @@ import { featureLinks } from "../constants/navbar";
 const Navbar = () => {
   const {
     isMenuOpen,
-    setIsMenuOpen,
     toggleMenu,
   } = useNavbar();
 
@@ -129,7 +128,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden neo-blur border-b border-white/10">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
