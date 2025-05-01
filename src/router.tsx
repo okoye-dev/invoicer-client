@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layout";
 import SignUp from "@/auth/components/SignUp";
-import SignIn from "@/auth/components/SignIn"; 
+import SignIn from "@/auth/components/SignIn";
+import { Dashboard } from "./Dashboard"; 
+
 
 export const AppRoutes = () => {
   return (
@@ -15,7 +17,6 @@ export const AppRoutes = () => {
             </Layout>
           }
         />
-
         <Route
           path="/signin"
           element={
@@ -24,7 +25,10 @@ export const AppRoutes = () => {
             </Layout>
           }
         />
-
+        <Route
+          path="/dashboard"
+          element={<Dashboard />} 
+        />
         <Route path="*" element={<div>404 - Page not found</div>} />
       </Routes>
     </BrowserRouter>

@@ -4,6 +4,7 @@ import { signUpSchema, SignUpData } from "@/auth/constants/schema"
 import { Input } from "@/shared/components/ui/input"
 import { Button } from "@/shared/components/ui/button"
 import { Label } from "@/shared/components/ui/label"
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
   const {
@@ -54,7 +55,7 @@ const SignUp = () => {
               {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
             </div>
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full bg-purple-400">
               Sign Up
             </Button>
           </form>
@@ -63,8 +64,9 @@ const SignUp = () => {
             <span className="text-sm text-gray-500">or</span>
           </div>
           <Button variant="outline" className="w-full flex items-center justify-center gap-2">
-            Sign up with Google
-          </Button>
+  <FcGoogle className="text-xl" />
+  Sign up with Google
+</Button>
 
           <p className="text-center text-sm text-gray-500">
             Already got an account?{" "}
