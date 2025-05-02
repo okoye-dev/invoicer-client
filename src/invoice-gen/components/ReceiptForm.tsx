@@ -4,7 +4,7 @@ import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
 import { Button } from "@/shared/components/ui/button";
 import { Textarea } from "@/shared/components/ui/textarea";
-import { InvoiceGenerator } from "@/invoice-gen/components/InvoiceGenerator";
+import { InvoiceGenerator } from "./invoiceGenerator";
 import {
   Card,
   CardContent,
