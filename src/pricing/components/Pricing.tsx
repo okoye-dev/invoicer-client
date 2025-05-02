@@ -1,7 +1,7 @@
 import Navbar from "@/landing/components/Navbar";
 import Footer from "@/landing/components/Footer";
 import PricingCard from "./PricingCard";
-import { pricingPlans } from "./constants/pricing";
+import { pricingPlans } from "../constants/pricing";
 import { motion } from "framer-motion";
 import { Button } from "@/shared/components/ui/button";
 

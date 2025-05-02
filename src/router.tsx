@@ -4,6 +4,7 @@ import SignUp from "@/auth/components/SignUp";
 import SignIn from "@/auth/components/SignIn";
 import { LandingPage }  from "@/index"; 
 import { ReceiptForm } from "./invoice-gen/components/ReceiptForm";
+import Pricing from "./pricing/components/Pricing";
 
 
 export const AppRoutes = () => {
@@ -14,7 +15,8 @@ export const AppRoutes = () => {
         <Route path="/" element={<SignUp />}/>
         <Route path="/signup" element={<SignUp />}/>
         <Route path="/dashboard" element={<LandingPage />}/>
-        <Route path="/ReceiptForm" element={<ReceiptForm />} />
+        <Route path="/receiptForm" element={<ReceiptForm />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/signin" element={<SignIn />}/>
         <Route path="*" element={<div>404 - Page not found</div>} />
       </Routes>
