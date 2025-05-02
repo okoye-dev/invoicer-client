@@ -5,20 +5,12 @@ import hero from "@/assets/dashboard.jpg";
 
 const HeroSection = () => {
   return (
-    <div className="relative mt-[200px] sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden -z-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-70"></div>
-        <div className="absolute -top-[40%] -left-[10%] w-[50%] h-[80%] rounded-full bg-blue-900/20 blur-3xl"></div>
-        <div className="absolute -bottom-[30%] -right-[10%] w-[60%] h-[70%] rounded-full bg-indigo-900/20 blur-3xl"></div>
-        <div className="absolute top-20 left-[20%] w-24 h-24 bg-gradient-to-r from-blue-500 rounded-full filter blur-3xl opacity-20 "></div>
-        <div className="absolute bottom-20 right-[30%] w-32 h-32 bg-gradient-to-r from-indigo-500 via-blue-400 to-blue-500 rounded-full filter blur-3xl opacity-20"></div>
-      </div>
-
+    <div className="relative mt-[100px] sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h1 className="tracking- leading-relaxed font-extrabold text-dark-text text-4xl md:text-5xl">
+          <h1 className="font-extrabold text-dark-text text-4xl md:text-5xl">
             Built To Take Your Business From Surviving To{" "}
-            <span className="gradient-text">Booming</span>
+            <span className="text-primary">Booming</span>
           </h1>
 
           <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-dark-muted opacity-90">
@@ -29,7 +21,7 @@ const HeroSection = () => {
             <Link to="/ReceiptForm">
               <Button
                 variant="outline"
-                className="btn-outline bg-[#03192F] text-white px-13 py-5 text-sm font-medium hover:scale-105 rounded-2xl cursor-pointer"
+                className="bg-[#03192F] text-white px-13 py-5 text-sm font-medium hover:scale-105 rounded-2xl cursor-pointer"
               >
                 Create an Invoice
               </Button>
@@ -38,12 +30,10 @@ const HeroSection = () => {
 
           <div className="mt-12">
             <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-indigo-900/20 to-blue-900/20 backdrop-blur-sm z-10 rounded-xl"></div>
-              <div className="absolute -inset-0.5 bg-conic-gradient rounded-xl blur-sm z-0 animate-pulse-glow"></div>
               <img
                 src={hero}
                 alt="Learning platform dashboard"
-                className="w-full rounded-xl shadow-lg relative z-10"
+                className="w-full rounded-xl shadow-lg"
               />
             </div>
           </div>

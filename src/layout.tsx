@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div
-      className={`mx-auto w-full max-w-[80rem]  ${
+      className={`mx-auto w-full  ${
         theme === "dark" ? "dark" : ""
       }`}
       style={{ backgroundColor: "var(--dark-background)" }}

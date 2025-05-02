@@ -27,9 +27,9 @@ const TestimonialsSection = () => {
     <div className="py-16 sm:py-24 bg-gradient-to-br from-dark-background to-dark-card/30 relative">
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-40 animate-pulse-slow"></div>
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-600/70 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-600/70 rounded-full animate-pulse-slow"></div>
         <div
-          className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow"
+          className="absolute bottom-1/3 right-1/4 w-40 h-40 bg-indigo-600/10 rounded-full animate-pulse-slow"
           style={{ animationDelay: "1s" }}
         ></div>
       </div>
@@ -61,7 +61,7 @@ const TestimonialsSection = () => {
               >
                 <div className="glass-card rounded-xl p-6 h-full flex flex-col relative overflow-hidden">
                   <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-blue-500 to-indigo-500"></div>
-                  <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-600/5 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-600/5 rounded-full"></div>
 
                   <div className="flex justify-center mb-4">
                     <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-700 to-indigo-700 flex items-center justify-center text-white">

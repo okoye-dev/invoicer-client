@@ -1,6 +1,7 @@
 import { Button } from "@/shared/components/ui/button";
 import { Menu, X, ChevronDown, FileText, Users, BarChart2 } from "lucide-react";
 import { useNavbar } from "../hooks/navhooks";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { isMenuOpen, toggleMenu } = useNavbar();
@@ -29,9 +30,11 @@ const Navbar = () => {
                 </div>
 
                 <div className="absolute top-10 left-0 w-64 bg-white rounded-lg shadow-lg z-50 p-2 flex flex-col gap-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 transition-colors cursor-pointer">
-                    <FileText size={16} /> Smart Invoicing
-                  </div>
+                <Link to="/ReceiptForm" className="no-underline">
+  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 transition-colors cursor-pointer">
+    <FileText size={16} /> Smart Invoicing
+  </div>
+</Link>
                   <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 transition-colors cursor-pointer">
                     <Users size={16} /> Client Management
                   </div>

@@ -5,11 +5,8 @@ const FeaturesSection = () => {
     <div id="features" className="py-16 sm:py-24 bg-dark-background relative">
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-50"></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-600/70 rounded-full blur-2xl"></div>
-        <div
-          className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-600/70 rounded-full blur-2xl "
-          
-        ></div>
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-blue-600/70 rounded-full"></div>
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-600/70 rounded-full"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +44,7 @@ const FeaturesSection = () => {
                   </div>
                 </div>
 
-                <div className="absolute -right-10 -bottom-10 w-24 h-24 bg-primary/5 rounded-full filter blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute -right-10 -bottom-10 w-24 h-24 bg-primary/5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
             ))}
           </div>
