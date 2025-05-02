@@ -26,7 +26,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex w-screen h-screen">
+    <div className="h-0 w-0">
+      <div className="flex w-screen h-screen">
       <div className="w-1/2 h-full flex items-center justify-center px-10">
         <div className="w-full max-w-md space-y-6">
           <div className="text-center">
@@ -75,6 +76,7 @@ const SignIn = () => {
       <div className="w-1/2 h-full">
         <img src={signinImage} alt="Sign In" className="w-full h-full object-cover" />
       </div>
+    </div>
     </div>
   );
 };
