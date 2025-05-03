@@ -31,7 +31,7 @@ const FeaturesSection = () => {
                 className="relative p-6 glass-card rounded-lg hover:shadow-lg transition-all overflow-hidden group"
               >
                 <div>
-                  <div className="absolute h-12 w-12 rounded-md bg-gradient-to-r from-blue-700 to-indigo-700 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                  <div className="absolute h-12 w-12 rounded-md bg-[#03192F] flex items-center justify-center text-white group-hover:scale-110 transition-transform">
                     <feature.icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <div className="ml-16">

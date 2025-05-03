@@ -11,19 +11,16 @@ const Pricing = () => {
       <Navbar />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden -z-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-40 animate-pulse-slow"></div>
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-40 "></div>
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-600/10 rounded-full blur-3xl"></div>
           <div
-            className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl animate-pulse-slow"
-            style={{ animationDelay: "1s" }}
+            className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl"
           ></div>
         </div>
 
         <motion.div
           className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+        
         >
           <h2 className="text-base font-semibold text-primary uppercase tracking-wide">
             Pricing
@@ -39,9 +36,7 @@ const Pricing = () => {
 
         <motion.div
           className="mt-16 grid gap-8 md:grid-cols-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+       
         >
           {pricingPlans.map((plan, index) => (
             <PricingCard key={plan.name} plan={plan} index={index} />
@@ -49,11 +44,7 @@ const Pricing = () => {
         </motion.div>
 
         <motion.div
-          className="mt-24 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+         
         >
           <p className="text-dark-muted text-lg">
             Have questions about our pricing plans?

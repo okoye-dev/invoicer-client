@@ -64,7 +64,7 @@ const HeroSection = () => {
               },
             ].map((feature, index) => (
               <div key={index} className="glass-card p-6 rounded-xl transition-all">
-                <div className="bg-gradient-to-r from-blue-600/70 to-indigo-600/20 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto pulse-glow">
+                <div className="bg-[#03192F] text-white w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto pulse-glow">
                   <feature.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-lg md:text-xl font-bold mb-3 text-dark-text">

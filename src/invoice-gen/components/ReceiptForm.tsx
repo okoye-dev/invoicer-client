@@ -13,13 +13,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/shared/components/ui/card";
+import Navbar from "@/landing/components/Navbar";
 
 export const ReceiptForm = () => {
   const { form, onSubmit, invoiceConfig } = useReceiptForm();
   const { fields, append, remove } = useReceiptFormFields(form.control);
 
   return (
-    <div className="max-w-3xl mt-[150px] mx-auto p-4">
+    <><Navbar /><div className="max-w-3xl mt-[150px] mx-auto p-4">
       <Card>
         <CardHeader>
           <CardTitle>Create Invoice</CardTitle>
@@ -184,6 +185,6 @@ export const ReceiptForm = () => {
           </CardFooter>
         )}
       </Card>
-    </div>
+    </div></>
   );
 };

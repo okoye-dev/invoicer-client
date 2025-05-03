@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
                   <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-indigo-600/5 rounded-full"></div>
 
                   <div className="flex justify-center mb-4">
-                    <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-700 to-indigo-700 flex items-center justify-center text-white">
+                    <div className="h-10 w-10 rounded-full bg-[#03192F] flex items-center justify-center text-white">
                       <Quote className="h-5 w-5" aria-hidden="true" />
                     </div>
                   </div>

@@ -20,9 +20,10 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-4">
-              <div className="px-3 py-2 text-sm font-medium transition-colors hover:text-indigo-400 text-white cursor-pointer">
+             <Link to="/dashboard" className="no-underline">
+             <div className="px-3 py-2 text-sm font-medium transition-colors hover:text-indigo-400 text-white cursor-pointer">
                 Home
-              </div>
+              </div></Link>
 
               <div className="relative group">
                 <div className="px-3 py-2 text-sm font-medium text-white hover:text-indigo-400 flex items-center gap-1 cursor-pointer transition-colors">
@@ -52,23 +53,26 @@ const Navbar = () => {
                 Blogs
               </div>
 
+              <Link to="/pricing">
               <div className="px-3 py-2 text-sm font-medium transition-colors hover:text-indigo-400 text-white cursor-pointer">
                 Pricing
-              </div>
+              </div></Link>
             </div>
           </div>
 
           <div className="hidden md:block">
             <div className="flex items-center space-x-3">
+              <Link to="/signin">
               <Button
                 variant="outline"
                 className="font-medium border-white/20 hover:bg-dark-accent text-slate-100"
               >
                 Sign in
-              </Button>
-              <Button className="font-medium bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:opacity-90">
+              </Button></Link>
+             <Link to="/signup">
+             <Button className="font-medium bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:opacity-90">
                 Get Started
-              </Button>
+              </Button></Link>
             </div>
           </div>
 
