@@ -4,10 +4,10 @@ import { InvoiceConfig } from "../constants/invoice";
 import { useInvoiceCalculations } from "./useInvoiceCalculations";
 
 export const useGeneratePDF = () => {
-  const { calculateSubtotal, calculateTotal, formatCurrency } =
-    useInvoiceCalculations();
-
   const generatePDF = (config: InvoiceConfig) => {
+    const { calculateSubtotal, calculateTotal, formatCurrency } =
+      useInvoiceCalculations(config);
+
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
     const logoWidth = 10;
@@ -55,7 +55,7 @@ export const useGeneratePDF = () => {
 
     doc.setFont("helvetica", "bold");
     const detailsStartY = lineY + 10;
-    doc.text("RECEIVED FROM", 20, detailsStartY);
+    doc.text("RECEIVED BY", 20, detailsStartY);
     doc.text("RECEIPT DATE", 100, detailsStartY);
     doc.text("RECEIPT NO", 160, detailsStartY);
 
@@ -73,15 +73,20 @@ export const useGeneratePDF = () => {
       "Rate",
       "Amount",
     ];
-    const tableRows = config.items.map((item, index) => [
-      (index + 1).toString(),
-      item.name,
-      item.quantity,
-      formatCurrency(parseFloat(item.price || "0")),
-      formatCurrency(
-        parseFloat(item.price || "0") * parseInt(item.quantity || "1")
-      ),
-    ]);
+
+    const tableRows = config.items.map((item, index) => {
+      const quantity = parseFloat(item.quantity || "0") || 0;
+      const rate = parseFloat(item.price || "0") || 0;
+      const amount = quantity * rate;
+
+      return [
+        (index + 1).toString(),
+        item.name,
+        quantity.toString(),
+        formatCurrency(rate),
+        formatCurrency(amount),
+      ];
+    });
 
     autoTable(doc, {
       head: [tableColumn],
@@ -95,10 +100,10 @@ export const useGeneratePDF = () => {
     let yPosition = (doc as any).lastAutoTable.finalY + 10;
 
     const subtotal = calculateSubtotal();
-    const discountAmount =
-      (subtotal * parseFloat(config.discount || "0")) / 100;
-    const vatAmount =
-      ((subtotal - discountAmount) * parseFloat(config.vat || "0")) / 100;
+    const discount = parseFloat(config.discount || "0") || 0;
+    const vat = parseFloat(config.vat || "0") || 0;
+    const discountAmount = (subtotal * discount) / 100;
+    const vatAmount = ((subtotal - discountAmount) * vat) / 100;
     const total = calculateTotal();
 
     const rowSpacing = 8;
@@ -109,13 +114,13 @@ export const useGeneratePDF = () => {
     doc.text(formatCurrency(subtotal), amountX, yPosition, { align: "right" });
 
     yPosition += rowSpacing;
-    doc.text(`Discount (${config.discount || "0"}%):`, labelX, yPosition);
+    doc.text(`Discount (${discount}%):`, labelX, yPosition);
     doc.text(`-${formatCurrency(discountAmount)}`, amountX, yPosition, {
       align: "right",
     });
 
     yPosition += rowSpacing;
-    doc.text(`VAT (${config.vat || "0"}%):`, labelX, yPosition);
+    doc.text(`VAT (${vat}%):`, labelX, yPosition);
     doc.text(formatCurrency(vatAmount), amountX, yPosition, { align: "right" });
 
     yPosition += rowSpacing + 5;
@@ -126,6 +131,7 @@ export const useGeneratePDF = () => {
     doc.text(formatCurrency(total), amountX, yPosition, { align: "right" });
 
     doc.setFontSize(10);
+    doc.setFont("helvetica", "normal");
     doc.text(
       config.thankYouMessage ||
         `Thank you for choosing ${config.companyName || "us"}`,
