@@ -1,7 +1,7 @@
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
-import { InvoiceConfig } from "../constants/invoice";
-import { useInvoiceCalculations } from "./useInvoiceCalculations";
+import { InvoiceConfig } from "@/invoice-gen/constants/invoice";
+import { useInvoiceCalculations } from "@/invoice-gen/hooks/useInvoiceCalculations";
 
 export const useGeneratePDF = () => {
   const generatePDF = (config: InvoiceConfig) => {

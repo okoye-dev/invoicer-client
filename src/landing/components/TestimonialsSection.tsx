@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
-import { testimonials } from "../constants/testimonials";
+import { testimonials } from "@/landing/constants/testimonials";
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

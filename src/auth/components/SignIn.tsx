@@ -6,7 +6,6 @@ import { Label } from "@/shared/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import signinImage from "@/assets/signup.jpeg";
 import { FcGoogle } from "react-icons/fc";
-
 import { signInSchema, SignInData } from "@/auth/constants/schema";
 
 const SignIn = () => {

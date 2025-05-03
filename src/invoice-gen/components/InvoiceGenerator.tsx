@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { InvoiceConfig } from "../constants/invoice";
-import { useGeneratePDF } from "../hooks/useGeneratePDF";
+import { InvoiceConfig } from "@/invoice-gen/constants/invoice";
+import { useGeneratePDF } from "@/invoice-gen/hooks/useGeneratePDF";
 
 interface InvoiceGeneratorProps {
   config?: InvoiceConfig;

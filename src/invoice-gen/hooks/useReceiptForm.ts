@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { receiptSchema, type ReceiptFormData, type InvoiceConfig } from "../constants/invoice";
+import { receiptSchema, type ReceiptFormData, type InvoiceConfig } from "@/invoice-gen/constants/invoice";
 
 export const useReceiptForm = () => {
   const [invoiceConfig, setInvoiceConfig] = useState<InvoiceConfig | null>(null);

@@ -1,4 +1,4 @@
-import { InvoiceConfig } from "../constants/invoice";
+import { InvoiceConfig } from "@/invoice-gen/constants/invoice";
 
 export const useInvoiceCalculations = (config?: InvoiceConfig) => {
   const calculateSubtotal = () => {

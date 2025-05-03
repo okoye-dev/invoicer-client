@@ -1,6 +1,6 @@
 import React from "react";
 import { Plus, Minus } from "lucide-react";
-import { faqs } from "../constants/faqs";
+import { faqs } from "@/landing/constants/faqs";
 
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);

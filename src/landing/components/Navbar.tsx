@@ -1,13 +1,12 @@
 import { Button } from "@/shared/components/ui/button";
 import { Menu, X, ChevronDown, FileText, Users, BarChart2 } from "lucide-react";
-import { useNavbar } from "../hooks/navhooks";
+import { useNavbar } from "@/landing/hooks/navhooks";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const Navbar = () => {
   const { isMenuOpen, toggleMenu, setIsMenuOpen } = useNavbar();
 
-  // Optional: Close menu on route change or scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsMenuOpen(false);
@@ -26,7 +25,6 @@ const Navbar = () => {
             </span>
           </div>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-6">
             <Link to="/dashboard" className="no-underline">
               <div className="text-white hover:text-indigo-400 text-sm font-medium cursor-pointer">
@@ -66,7 +64,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Buttons */}
           <div className="hidden md:flex space-x-3">
             <Link to="/signin">
               <Button variant="outline" className="font-medium border-white/20 hover:bg-dark-accent text-slate-100">
@@ -116,7 +113,6 @@ const Navbar = () => {
             Pricing
           </Link>
 
-          {/* Mobile Auth Buttons */}
           <div className="pt-4 border-t border-white/10 space-y-3">
             <Link to="/signin">
               <Button variant="outline" className="w-full font-medium border-white/20 text-white">
