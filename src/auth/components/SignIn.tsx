@@ -4,7 +4,6 @@ import { Input } from "@/shared/components/ui/input";
 import { Button } from "@/shared/components/ui/button";
 import { Label } from "@/shared/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
-import signinImage from "@/assets/signup.jpeg";
 import { FcGoogle } from "react-icons/fc";
 import { signInSchema, SignInData } from "@/auth/constants/schema";
 
@@ -29,7 +28,7 @@ const SignIn = () => {
       <div className="flex w-screen h-screen">
         <div className="w-1/2 h-full">
           <img
-            src={signinImage}
+            src="/src/assets/signup.jpeg"
             alt="Sign In"
             className="w-full h-full object-cover"
           />

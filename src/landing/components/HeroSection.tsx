@@ -1,7 +1,6 @@
 import { Button } from "@/shared/components/ui/button";
 import { TrendingUp, File, PiggyBank, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
-import hero from "@/assets/dashboard.jpg";
 
 const HeroSection = () => {
   return (
@@ -31,7 +30,7 @@ const HeroSection = () => {
           <div className="mt-12">
             <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl">
               <img
-                src={hero}
+                src="/src/assets/dashboard.jpeg"
                 alt="Learning platform dashboard"
                 className="w-full rounded-xl shadow-lg"
               />
