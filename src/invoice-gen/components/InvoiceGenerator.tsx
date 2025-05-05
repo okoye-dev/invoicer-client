@@ -6,7 +6,7 @@ interface InvoiceGeneratorProps {
   config?: InvoiceConfig;
 }
 
-export const invoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
+export const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
   const { generatePDF } = useGeneratePDF();
   const [isGenerating, setIsGenerating] = useState(false);
 
