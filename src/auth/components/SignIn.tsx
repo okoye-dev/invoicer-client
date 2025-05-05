@@ -27,7 +27,6 @@ const SignIn = () => {
   return (
     <div className="h-0 w-0">
       <div className="flex w-screen h-screen">
-        {/* Image on the left */}
         <div className="w-1/2 h-full">
           <img
             src={signinImage}
@@ -36,7 +35,6 @@ const SignIn = () => {
           />
         </div>
 
-        {/* Form on the right */}
         <div className="w-1/2 h-full flex items-center justify-center px-10">
           <div className="w-full max-w-md space-y-6">
             <div className="text-center">

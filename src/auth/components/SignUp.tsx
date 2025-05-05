@@ -64,9 +64,9 @@ const SignUp = () => {
             <span className="text-sm text-gray-500">or</span>
           </div>
           <Button variant="outline" className="w-full flex items-center justify-center gap-2">
-  <FcGoogle className="text-xl" />
-  Sign up with Google
-</Button>
+          <FcGoogle className="text-xl" />
+           Sign up with Google
+          </Button>
 
           <p className="text-center text-sm text-gray-500">
             Already got an account?{" "}

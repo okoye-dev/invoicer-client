@@ -7,12 +7,12 @@ body,
 #root {
   margin: 0;
   padding: 0;
-  height: 100%;  /* Ensure the body takes up full height */
-  width: 100%;   /* Ensure the body takes up full width */
+  height: 100%;  
+  width: 100%;   
   font-family: "Inter", sans-serif;
   
 }
 
 body {
-  min-height: 100vh; /* Ensure the body has at least the height of the viewport */
+  min-height: 100vh; 
 }
