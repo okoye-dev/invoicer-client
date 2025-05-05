@@ -6,6 +6,7 @@ import { Label } from "@/shared/components/ui/label";
 import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { signInSchema, SignInData } from "@/auth/constants/schema";
+import  signup  from "@/assets/signup.jpeg"
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const SignIn = () => {
       <div className="flex w-screen h-screen">
         <div className="w-1/2 h-full">
           <img
-            src="/src/assets/signup.jpeg"
+            src={signup}
             alt="Sign In"
             className="w-full h-full object-cover"
           />
@@ -70,7 +71,7 @@ const SignIn = () => {
                 )}
               </div>
 
-              <Button type="submit" className="w-full bg-purple-400">
+              <Button type="submit" className="w-full text-white bg-purple-400">
                 Sign In
               </Button>
             </form>

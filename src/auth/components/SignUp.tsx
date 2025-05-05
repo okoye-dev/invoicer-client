@@ -5,6 +5,8 @@ import { Input } from "@/shared/components/ui/input"
 import { Button } from "@/shared/components/ui/button"
 import { Label } from "@/shared/components/ui/label"
 import { FcGoogle } from "react-icons/fc";
+import  signup  from "@/assets/signup.jpeg"
+
 
 const SignUp = () => {
   const {
@@ -23,7 +25,7 @@ const SignUp = () => {
     <div className="flex w-screen h-screen">
       <div className="w-1/2 h-full">
         <img
-          src="/src/assets/signup.jpeg"
+          src={signup}
           alt="Sign Up"
           className="w-full h-full object-cover"
         />
@@ -55,7 +57,7 @@ const SignUp = () => {
               {errors.password && <p className="text-sm text-red-500">{errors.password.message}</p>}
             </div>
 
-            <Button type="submit" className="w-full bg-purple-400">
+            <Button type="submit" className="w-full text-white bg-purple-400">
               Sign Up
             </Button>
           </form>

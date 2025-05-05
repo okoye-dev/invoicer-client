@@ -1,11 +1,12 @@
 import { Button } from "@/shared/components/ui/button";
 import { TrendingUp, File, PiggyBank, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
+import hero from "@/assets/dashboard.jpg";
 
 const HeroSection = () => {
   return (
-    <div className="relative mt-[100px] sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
+      <div className="max-w-7xl mt-[100px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="font-extrabold text-dark-text text-4xl md:text-5xl">
             Built To Take Your Business From Surviving To{" "}
@@ -30,7 +31,7 @@ const HeroSection = () => {
           <div className="mt-12">
             <div className="relative mx-auto max-w-5xl overflow-hidden rounded-xl">
               <img
-                src="/src/assets/dashboard.jpeg"
+                src={hero}
                 alt="Learning platform dashboard"
                 className="w-full rounded-xl shadow-lg"
               />

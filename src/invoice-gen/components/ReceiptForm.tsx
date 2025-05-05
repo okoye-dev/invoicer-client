@@ -20,8 +20,8 @@ export const ReceiptForm = () => {
   const { fields, append, remove } = useReceiptFormFields(form.control);
 
   return (
-    <><Navbar /><div className="max-w-3xl mt-[150px] mx-auto p-4">
-      <Card>
+    <><Navbar /><div className="max-w-3xl mx-auto p-4">
+      <Card className=" mt-[150px]">
         <CardHeader>
           <CardTitle>Create Invoice</CardTitle>
           <CardDescription>
@@ -156,7 +156,7 @@ export const ReceiptForm = () => {
                 </div>
               ))}
               <Button
-                className="bg-blue-300"
+                className=" bg-purple-400"
                 type="button"
                 onClick={() => append({ name: "", price: "", quantity: "" })}
               >
@@ -174,7 +174,7 @@ export const ReceiptForm = () => {
               <Textarea className="mt-3" {...form.register("thankYouMessage")} />
             </div>
 
-            <Button className="bg-blue-300" type="submit">
+            <Button className=" bg-purple-400" type="submit">
               Generate Invoice
             </Button>
           </form>
