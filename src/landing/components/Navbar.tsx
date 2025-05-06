@@ -16,7 +16,7 @@ const Navbar = () => {
   }, [setIsMenuOpen]);
 
   return (
-    <nav className="absolute top-6 left-0 right-0 mx-4 md:mx-10 lg:mx-20 bg-purple-600  rounded-2xl py-4 z-50 shadow-xl">
+    <nav className="absolute top-6 left-0 right-0 mx-4 md:mx-10 lg:mx-20 bg-[#03192F] rounded-2xl py-4 z-50 shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">

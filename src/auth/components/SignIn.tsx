@@ -25,15 +25,17 @@ const SignIn = () => {
   };
 
   return (
-    <div className="h-0 w-0">
+    
       <div className="flex w-screen h-screen">
-        <div className="w-1/2 h-full">
-          <img
-            src={signup}
-            alt="Sign In"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div className="w-1/2 h-full bg-gray-200 relative">
+  <img
+    src={signup}
+    alt="Sign In"
+    className="w-full h-full object-cover absolute inset-0"
+    loading="eager"
+  />
+</div>
+
 
         <div className="w-1/2 h-full flex items-center justify-center px-10">
           <div className="w-full max-w-md space-y-6">
@@ -103,7 +105,6 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

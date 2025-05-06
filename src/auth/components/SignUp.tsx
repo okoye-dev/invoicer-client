@@ -28,6 +28,7 @@ const SignUp = () => {
           src={signup}
           alt="Sign Up"
           className="w-full h-full object-cover"
+          loading="eager"
         />
       </div>
 
