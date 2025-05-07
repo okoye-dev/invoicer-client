@@ -5,8 +5,9 @@ import { Textarea } from "@/shared/components/ui/textarea";
 import { Label } from "@radix-ui/react-label";
 import { useState } from "react";
 import { useReceiptFormFields } from "../constants/useFieldArray";
-import { useReceiptForm } from "../hooks/useReceiptForm";
-import { InvoiceGenerator } from "./InvoiceGenerator";
+import { useReceiptForm } from "@/invoice-gen/hooks/useReceiptForm";
+import { InvoiceGenerator } from "@/invoice-gen/components/InvoiceGenerator";
+import { UploadCloud, PlusCircle, X } from "lucide-react";
 
 export const ReceiptForm = () => {
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
@@ -16,25 +17,21 @@ export const ReceiptForm = () => {
   return (
     <>
       <Navbar />
+      <div className="min-h-screen pt-[130px] px-4 md:px-10 max-w-6xl mx-auto">
+        <div className="mb-10">
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">🧾 Create a Receipt</h1>
+          <p className="text-gray-600 mt-2 text-lg">Fill in the details to generate a sleek, professional receipt.</p>
+        </div>
 
-      <div className="min-h-screen pt-[150px] px-4 max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold mb-2">Create Receipt</h1>
-        <p className="text-gray-600 mb-6">
-          Fill in the details below to generate a professional invoice.
-        </p>
-
-        <div className="mb-6">
-          <label htmlFor="logo" className="block text-sm font-medium text-gray-700 mb-2">
-            Upload Company Logo
-          </label>
-
+        <div className="bg-white shadow-sm rounded-xl p-6 mb-10">
+          <Label className="text-md font-medium mb-2 block">Company Logo</Label>
           <div
-            className="w-95 h-32 border border-dashed border-gray-400 rounded-md flex items-center justify-center text-center text-xs text-gray-500 cursor-pointer hover:bg-gray-50 transition"
+            className="w-[300px] h-40 border border-dashed border-gray-400 rounded-lg flex items-center justify-center text-center text-sm text-gray-500 cursor-pointer hover:bg-gray-50 transition"
             onClick={() => document.getElementById("logo")?.click()}
           >
-            Click to upload
+            <UploadCloud className="w-6 h-6 mr-2" />
+            Click to upload logo
           </div>
-
           <input
             id="logo"
             name="logo"
@@ -46,177 +43,143 @@ export const ReceiptForm = () => {
               if (file) {
                 const reader = new FileReader();
                 reader.onloadend = () => {
-                  setLogoPreview(reader.result as string); // Set logo preview
+                  setLogoPreview(reader.result as string);
                 };
                 reader.readAsDataURL(file);
               }
             }}
           />
-
           {logoPreview && (
-            <div className="mt-3">
-              <p className="text-sm text-gray-500">Preview:</p>
-              <img
-                src={logoPreview}
-                alt="Company Logo Preview"
-                className="h-16 object-contain mt-1"
-              />
+            <div className="mt-4">
+              <p className="text-sm text-gray-500 mb-1">Preview:</p>
+              <img src={logoPreview} alt="Company Logo" className="h-20 object-contain" />
             </div>
           )}
         </div>
 
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="flex justify-end gap-8 flex-wrap">
-            <div className="w-[300px] space-y-4">
-              <h2 className="text-lg font-semibold">Company Info</h2>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+          {/* Company & Customer Info */}
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
+              <h2 className="text-lg font-semibold text-gray-800">🏢 Company Information</h2>
               <div>
                 <Label>Company Name</Label>
-                <Input className="mt-3" {...form.register("companyName")} />
-                {form.formState.errors.companyName && (
-                  <p className="text-red-500 text-sm">
-                    {form.formState.errors.companyName.message}
-                  </p>
-                )}
+                <Input className="mt-2" {...form.register("companyName")} />
               </div>
               <div>
-                <Label>Company Address</Label>
-                <Textarea className="mt-3" {...form.register("companyAddress")} />
-                {form.formState.errors.companyAddress && (
-                  <p className="text-red-500 text-sm">
-                    {form.formState.errors.companyAddress.message}
-                  </p>
-                )}
+                <Label>Address</Label>
+                <Textarea className="mt-2" {...form.register("companyAddress")} />
               </div>
               <div>
-                <Label>Company Phone</Label>
-                <Input className="mt-3" {...form.register("companyPhone")} />
-                {form.formState.errors.companyPhone && (
-                  <p className="text-red-500 text-sm">
-                    {form.formState.errors.companyPhone.message}
-                  </p>
-                )}
+                <Label>Phone</Label>
+                <Input className="mt-2" {...form.register("companyPhone")} />
               </div>
             </div>
 
-            <div className="w-[300px] space-y-4">
-              <h2 className="text-lg font-semibold">Customer Info</h2>
+            <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
+              <h2 className="text-lg font-semibold text-gray-800">👤 Customer Information</h2>
               <div>
-                <Input className="mt-3" {...form.register("customerName")} />
-                {form.formState.errors.customerName && (
-                  <p className="text-red-500 text-sm">
-                    {form.formState.errors.customerName.message}
-                  </p>
-                )}
+                <Label>Name</Label>
+                <Input className="mt-2" {...form.register("customerName")} />
               </div>
               <div>
-                <Label>Customer Address</Label>
-                <Textarea className="mt-3" {...form.register("customerAddress")} />
-                {form.formState.errors.customerAddress && (
-                  <p className="text-red-500 text-sm">
-                    {form.formState.errors.customerAddress.message}
-                  </p>
-                )}
+                <Label>Address</Label>
+                <Textarea className="mt-2" {...form.register("customerAddress")} />
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="max-w-xs">
+          {/* Invoice Details */}
+          <div className="bg-white p-6 rounded-xl shadow-sm grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div>
               <Label>Invoice Number</Label>
-              <Input className="mt-3" {...form.register("invoiceNumber")} />
+              <Input className="mt-2" {...form.register("invoiceNumber")} />
             </div>
-            <div className="max-w-xs">
-              <Label>Invoice Date</Label>
-              <Input
-                className="mt-3"
-                type="date"
-                {...form.register("invoiceDate")}
-              />
+            <div>
+              <Label>Date</Label>
+              <Input type="date" className="mt-2" {...form.register("invoiceDate")} />
             </div>
-            <div className="max-w-xs">
+            <div>
               <Label>Discount (%)</Label>
-              <Input type="number" className="mt-3" {...form.register("discount")} />
+              <Input type="number" className="mt-2" {...form.register("discount")} />
             </div>
-            <div className="max-w-xs">
+            <div>
               <Label>VAT (%)</Label>
-              <Input type="number" className="mt-3" {...form.register("vat")} />
+              <Input type="number" className="mt-2" {...form.register("vat")} />
             </div>
           </div>
 
-          <div className="space-y-4">
-            <Label className="text-lg">Items</Label>
+          {/* Invoice Items */}
+          <div className="bg-white p-6 rounded-xl shadow-sm">
+            <h2 className="text-xl font-semibold mb-4">📦 Invoice Items</h2>
+
             {fields.map((field, index) => (
-              <div key={field.id} className="grid grid-cols-4 gap-2 items-end">
-                <div className="max-w-xs">
-                  <Input
-                    className="mt-3"
-                    placeholder="Item name"
-                    {...form.register(`items.${index}.name`)}
-                  />
-                  {form.formState.errors.items?.[index]?.name && (
-                    <p className="text-red-500 text-sm">
-                      {form.formState.errors.items[index]?.name?.message}
-                    </p>
-                  )}
+              <div key={field.id} className="grid grid-cols-12 gap-4 items-end mb-4">
+                <div className="col-span-5">
+                  <Label>Item</Label>
+                  <Input placeholder="e.g., Product A" {...form.register(`items.${index}.name`)} />
                 </div>
-                <div className="max-w-[120px]">
-                  <Input
-                    className="mt-3"
-                    placeholder="Price"
-                    type="number"
-                    {...form.register(`items.${index}.price`)}
-                  />
-                  {form.formState.errors.items?.[index]?.price && (
-                    <p className="text-red-500 text-sm">
-                      {form.formState.errors.items[index]?.price?.message}
-                    </p>
-                  )}
+                <div className="col-span-2">
+                  <Label>Price</Label>
+                  <Input type="number" {...form.register(`items.${index}.price`)} />
                 </div>
-                <div className="max-w-[120px]">
-                  <Input
-                    className="mt-3"
-                    placeholder="Quantity"
-                    type="number"
-                    {...form.register(`items.${index}.quantity`)}
-                  />
-                  {form.formState.errors.items?.[index]?.quantity && (
-                    <p className="text-red-500 text-sm">
-                      {form.formState.errors.items[index]?.quantity?.message}
-                    </p>
-                  )}
+                <div className="col-span-2">
+                  <Label>Quantity</Label>
+                  <Input type="number" {...form.register(`items.${index}.quantity`)} />
                 </div>
-                <Button
-                  variant="destructive"
-                  type="button"
-                  onClick={() => remove(index)}
-                  className="w-fit"
-                >
-                  Remove
-                </Button>
+                <div className="col-span-3 flex justify-end">
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    className="mt-5"
+                    onClick={() => remove(index)}
+                  >
+                    <X className="w-4 h-4 mr-1" />
+                    Remove
+                  </Button>
+                </div>
               </div>
             ))}
 
             <Button
-              className="bg-purple-400"
               type="button"
               onClick={() => append({ name: "", price: "", quantity: "" })}
+              className="mt-4 bg-green-600 hover:bg-green-700 text-white"
             >
+              <PlusCircle className="w-4 h-4 mr-2" />
               Add Item
             </Button>
+
+            <div className="text-right mt-6 text-lg font-semibold text-gray-700">
+              Total: ₦
+              {fields.reduce((acc, _item, idx) => {
+                const price = parseFloat(form.getValues(`items.${idx}.price`) || "0");
+                const quantity = parseFloat(form.getValues(`items.${idx}.quantity`) || "0");
+                return acc + price * quantity;
+              }, 0).toFixed(2)}
+            </div>
           </div>
 
-          <div className="max-w-[50px]">
-            <Label>Thank You Message</Label>
-            <Textarea className="mt-3" {...form.register("thankYouMessage")} />
+          {/* Thank You Message */}
+          <div className="bg-white p-6 rounded-xl shadow-sm">
+            <Label className="block text-md font-medium mb-2">Thank You Message</Label>
+            <Textarea {...form.register("thankYouMessage")} placeholder="e.g., Thank you for your business!" />
           </div>
 
-          <Button className="bg-purple-400" type="submit">
-            Generate Invoice
-          </Button>
+          {/* Submit */}
+          <div className="text-right">
+            <Button
+              type="submit"
+              className="bg-purple-600 hover:bg-purple-700 text-white text-lg px-8 py-3"
+            >
+              Generate Invoice
+            </Button>
+          </div>
         </form>
 
+        {/* Invoice Preview */}
         {invoiceConfig && (
-          <div className="mt-10">
+          <div className="mt-12 bg-white p-6 rounded-xl shadow-sm">
             <InvoiceGenerator config={invoiceConfig} />
           </div>
         )}
