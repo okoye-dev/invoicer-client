@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { receiptSchema, type ReceiptFormData, type InvoiceConfig } from "@/invoice-gen/constants/invoice";
 
-export const useReceiptForm = () => {
+export const useReceiptForm = (logoBase: string | undefined) => {
   const [invoiceConfig, setInvoiceConfig] = useState<InvoiceConfig | null>(null);
 
   const form = useForm<ReceiptFormData>({
@@ -37,7 +37,7 @@ export const useReceiptForm = () => {
       thankYouMessage: data.thankYouMessage || "",
       items: data.items,
       dueDate: undefined,
-      logoBase: undefined,
+      logoBase: logoBase || "", 
     };
     setInvoiceConfig(config);
   };

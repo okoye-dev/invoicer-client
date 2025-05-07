@@ -10,8 +10,8 @@ export const useGeneratePDF = () => {
 
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
-    const logoWidth = 10;
-    const logoHeight = 10;
+    const logoWidth = 40;
+    const logoHeight = 20;
     const logoX = (pageWidth - logoWidth) / 2;
     const logoY = 10;
 
