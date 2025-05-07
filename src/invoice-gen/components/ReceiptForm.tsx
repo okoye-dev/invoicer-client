@@ -19,7 +19,7 @@ export const ReceiptForm = () => {
       <Navbar />
       <div className="min-h-screen pt-[130px] px-4 md:px-10 max-w-6xl mx-auto">
         <div className="mb-10">
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">🧾 Create a Receipt</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900"> Create a Receipt</h1>
           <p className="text-gray-600 mt-2 text-lg">Fill in the details to generate a sleek, professional receipt.</p>
         </div>
 
@@ -58,7 +58,6 @@ export const ReceiptForm = () => {
         </div>
 
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
-          {/* Company & Customer Info */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
               <h2 className="text-lg font-semibold text-gray-800">🏢 Company Information</h2>
@@ -89,7 +88,6 @@ export const ReceiptForm = () => {
             </div>
           </div>
 
-          {/* Invoice Details */}
           <div className="bg-white p-6 rounded-xl shadow-sm grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
               <Label>Invoice Number</Label>
@@ -109,7 +107,6 @@ export const ReceiptForm = () => {
             </div>
           </div>
 
-          {/* Invoice Items */}
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <h2 className="text-xl font-semibold mb-4">📦 Invoice Items</h2>
 
@@ -160,13 +157,11 @@ export const ReceiptForm = () => {
             </div>
           </div>
 
-          {/* Thank You Message */}
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <Label className="block text-md font-medium mb-2">Thank You Message</Label>
             <Textarea {...form.register("thankYouMessage")} placeholder="e.g., Thank you for your business!" />
           </div>
 
-          {/* Submit */}
           <div className="text-right">
             <Button
               type="submit"
@@ -177,7 +172,6 @@ export const ReceiptForm = () => {
           </div>
         </form>
 
-        {/* Invoice Preview */}
         {invoiceConfig && (
           <div className="mt-12 bg-white p-6 rounded-xl shadow-sm">
             <InvoiceGenerator config={invoiceConfig} />
