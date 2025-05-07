@@ -3,8 +3,9 @@ import Layout from "./layout";
 import SignUp from "@/auth/components/SignUp";
 import SignIn from "@/auth/components/SignIn";
 import { LandingPage }  from "@/index"; 
-import { ReceiptForm } from "./invoice-gen/components/ReceiptForm";
+import { InvoiceForm } from "./invoice-gen/components/InvoiceForm";
 import Pricing from "./pricing/components/Pricing";
+import InvoiceList from "./invoice-gen/components/InvoiceList";
 
 
 export const AppRoutes = () => {
@@ -15,10 +16,11 @@ export const AppRoutes = () => {
         <Route path="/" element={<SignUp />}/>
         <Route path="/signup" element={<SignUp />}/>
         <Route path="/dashboard" element={<LandingPage />}/>
-        <Route path="/receiptForm" element={<ReceiptForm />} />
+        <Route path="/receiptForm" element={<InvoiceForm />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/signin" element={<SignIn />}/>
         <Route path="*" element={<div>404 - Page not found</div>} />
+        <Route path="/invoiceList" element={<InvoiceList />} />
       </Routes>
       </Layout>
     </BrowserRouter>

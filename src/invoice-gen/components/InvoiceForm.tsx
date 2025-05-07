@@ -9,58 +9,98 @@ import { useReceiptForm } from "@/invoice-gen/hooks/useReceiptForm";
 import { InvoiceGenerator } from "@/invoice-gen/components/InvoiceGenerator";
 import { UploadCloud, PlusCircle, X } from "lucide-react";
 
-export const ReceiptForm = () => {
+export const InvoiceForm = () => {
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
   const { form, onSubmit, invoiceConfig } = useReceiptForm(logoPreview || undefined);
   const { fields, append, remove } = useReceiptFormFields(form.control);
+
+  const [invoiceList, setInvoiceList] = useState<any[]>([]);
+  const [selectedInvoice, setSelectedInvoice] = useState<any | null>(null);
+
+  const handleSubmit = (data: any) => {
+    onSubmit(data);
+    setInvoiceList((prev) => [...prev, data]);
+  };
 
   return (
     <>
       <Navbar />
       <div className="min-h-screen pt-[130px] px-4 md:px-10 max-w-6xl mx-auto">
         <div className="mb-10">
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900"> Create a Receipt</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Create a Receipt</h1>
           <p className="text-gray-600 mt-2 text-lg">Fill in the details to generate a sleek, professional receipt.</p>
         </div>
 
-        <div className="bg-white shadow-sm rounded-xl p-6 mb-10">
-          <Label className="text-md font-medium mb-2 block">Company Logo</Label>
-          <div
-            className="w-[300px] h-40 border border-dashed border-gray-400 rounded-lg flex items-center justify-center text-center text-sm text-gray-500 cursor-pointer hover:bg-gray-50 transition"
-            onClick={() => document.getElementById("logo")?.click()}
-          >
-            <UploadCloud className="w-6 h-6 mr-2" />
-            Click to upload logo
-          </div>
-          <input
-            id="logo"
-            name="logo"
-            type="file"
-            accept="image/*"
-            className="hidden"
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) {
-                const reader = new FileReader();
-                reader.onloadend = () => {
-                  setLogoPreview(reader.result as string);
-                };
-                reader.readAsDataURL(file);
-              }
-            }}
-          />
-          {logoPreview && (
-            <div className="mt-4">
-              <p className="text-sm text-gray-500 mb-1">Preview:</p>
-              <img src={logoPreview} alt="Company Logo" className="h-20 object-contain" />
+        <div className="flex flex-col lg:flex-row gap-6">
+          <div className="bg-white shadow-sm rounded-xl p-6 w-full lg:w-1/2">
+            <Label className="text-md font-medium mb-2 block">Company Logo</Label>
+            <div
+              className="w-full h-40 border border-dashed border-gray-400 rounded-lg flex items-center justify-center text-center text-sm text-gray-500 cursor-pointer hover:bg-gray-50 transition"
+              onClick={() => document.getElementById("logo")?.click()}
+            >
+              <UploadCloud className="w-6 h-6 mr-2" />
+              Click to upload logo
             </div>
-          )}
+            <input
+              id="logo"
+              name="logo"
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  const reader = new FileReader();
+                  reader.onloadend = () => {
+                    setLogoPreview(reader.result as string);
+                  };
+                  reader.readAsDataURL(file);
+                }
+              }}
+            />
+            {logoPreview && (
+              <div className="mt-4">
+                <p className="text-sm text-gray-500 mb-1">Preview:</p>
+                <img src={logoPreview} alt="Company Logo" className="h-20 object-contain" />
+              </div>
+            )}
+          </div>
+
+          <div className="bg-white shadow-sm rounded-xl p-6 w-full lg:w-1/2">
+            <h2 className="text-xl font-bold mb-4"> Saved Invoices</h2>
+            {invoiceList.length === 0 ? (
+              <p className="text-gray-500 text-sm">No saved invoices yet.</p>
+            ) : (
+              <ul className="grid gap-4 max-h-[200px] overflow-y-auto pr-2">
+                {invoiceList.map((invoice, index) => (
+                  <li
+                    key={index}
+                    className="border p-3 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition"
+                    onClick={() => setSelectedInvoice(invoice)}
+                  >
+                    <p className="text-gray-700 font-semibold">Invoice #{invoice.invoiceNumber}</p>
+                    <p className="text-sm text-gray-500">
+                      {invoice.companyName} ➝ {invoice.customerName}
+                    </p>
+                    <p className="text-sm text-gray-500">Date: {invoice.invoiceDate}</p>
+                    <p className="text-sm text-gray-500">
+                      Total: ₦
+                      {invoice.items.reduce(
+                        (acc: number, item: any) => acc + item.price * item.quantity,
+                        0
+                      ).toFixed(2)}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
 
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
+        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-10 mt-10">
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
-              <h2 className="text-lg font-semibold text-gray-800">🏢 Company Information</h2>
+              <h2 className="text-lg font-semibold text-gray-800">Company Information</h2>
               <div>
                 <Label>Company Name</Label>
                 <Input className="mt-2" {...form.register("companyName")} />
@@ -109,7 +149,6 @@ export const ReceiptForm = () => {
 
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <h2 className="text-xl font-semibold mb-4">📦 Invoice Items</h2>
-
             {fields.map((field, index) => (
               <div key={field.id} className="grid grid-cols-12 gap-4 items-end mb-4">
                 <div className="col-span-5">
@@ -137,7 +176,6 @@ export const ReceiptForm = () => {
                 </div>
               </div>
             ))}
-
             <Button
               type="button"
               onClick={() => append({ name: "", price: "", quantity: "" })}
@@ -146,7 +184,6 @@ export const ReceiptForm = () => {
               <PlusCircle className="w-4 h-4 mr-2" />
               Add Item
             </Button>
-
             <div className="text-right mt-6 text-lg font-semibold text-gray-700">
               Total: ₦
               {fields.reduce((acc, _item, idx) => {
@@ -163,14 +200,40 @@ export const ReceiptForm = () => {
           </div>
 
           <div className="text-right">
-            <Button
-              type="submit"
-              className="bg-purple-600 hover:bg-purple-700 text-white text-lg px-8 py-3"
-            >
+            <Button type="submit" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-3">
               Generate Invoice
             </Button>
           </div>
         </form>
+
+        {selectedInvoice && (
+          <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-xl max-w-lg w-full shadow-lg relative">
+              <button
+                onClick={() => setSelectedInvoice(null)}
+                className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <h3 className="text-xl font-bold mb-4">Invoice #{selectedInvoice.invoiceNumber}</h3>
+              <p className="mb-2">Company: {selectedInvoice.companyName}</p>
+              <p className="mb-2">Customer: {selectedInvoice.customerName}</p>
+              <p className="mb-4">Date: {selectedInvoice.invoiceDate}</p>
+              <ul className="space-y-2">
+                {selectedInvoice.items.map((item: any, idx: number) => (
+                  <li key={idx} className="flex justify-between">
+                    <span>{item.name}</span>
+                    <span>₦{(item.price * item.quantity).toFixed(2)}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 font-semibold text-right">
+                Total: ₦
+                {selectedInvoice.items.reduce((acc: number, item: any) => acc + item.price * item.quantity, 0).toFixed(2)}
+              </p>
+            </div>
+          </div>
+        )}
 
         {invoiceConfig && (
           <div className="mt-12 bg-white p-6 rounded-xl shadow-sm">

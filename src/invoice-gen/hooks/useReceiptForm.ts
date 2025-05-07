@@ -5,6 +5,7 @@ import { receiptSchema, type ReceiptFormData, type InvoiceConfig } from "@/invoi
 
 export const useReceiptForm = (logoBase: string | undefined) => {
   const [invoiceConfig, setInvoiceConfig] = useState<InvoiceConfig | null>(null);
+  
 
   const form = useForm<ReceiptFormData>({
     resolver: zodResolver(receiptSchema),
