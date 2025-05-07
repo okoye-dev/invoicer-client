@@ -6,29 +6,34 @@ import hero from "@/assets/dashboard.jpg";
 const HeroSection = () => {
   return (
     <section className="relative sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-[100px]">
-        <div className="text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold font-clash text-dark-text tracking-tight leading-tight">
-  Built To Take Your Business From Surviving To{" "}
-  <span className=" bg-clip-text bg-gradient-to-r from-primary to-blue-500">
-    Booming
-  </span>
-</h1>
+      <div className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 mt-[100px]">
+        <div className="flex flex-col md:flex-row items-center md:justify-between gap-12">
+          <div className="w-full md:w-1/2 text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-extrabold font-clash text-dark-text tracking-tight leading-tight">
+              Built To Take Your Business From Surviving To{" "}
+              <span className="bg-clip-text text-purple-900">
+                Booming
+              </span>
+            </h1>
 
+            <p className="mt-6 text-lg md:text-xl text-dark-muted opacity-90">
+              Easily manage your bookkeeping, send invoices quickly, and seamlessly connect with customers.
+            </p>
 
-          <div className="mt-8 flex justify-center">
-            <Link to="/ReceiptForm">
-              <Button
-                variant="outline"
-                className="bg-[#03192F] text-white px-8 py-4 text-base font-semibold rounded-2xl transition-transform transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                 Quick Invoice
-              </Button>
-            </Link>
+            <div className="mt-8 flex justify-center items-center md:justify-start">
+              <Link to="/invoiceForm">
+                <Button
+                  variant="outline"
+                  className="bg-[#03192F] text-white px-15 py-8 text-base font-semibold rounded-2xl transition-transform transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Quick Invoice
+                </Button>
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-16">
-            <div className="mx-auto max-w-5xl rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+          <div className="w-full md:w-1/2">
+            <div className="rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <img
                 src={hero}
                 alt="App dashboard preview"
@@ -36,34 +41,34 @@ const HeroSection = () => {
               />
             </div>
           </div>
+        </div>
 
-          <div className="mt-20 text-center">
-            <div className="flex justify-center mb-4 animate-pulse">
-              <Globe size={48} className="text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-dark-text">
-              Transform your business from a small brand to a global force.
-            </h2>
-            <p className="mt-6 text-lg font-medium text-dark-muted">Here's what that looks like:</p>
+        <div className="mt-30 text-center">
+          <div className="flex justify-center mb-4 animate-pulse">
+            <Globe size={80} className="text-primary" />
           </div>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-dark-text">
+            Transform your business from a small brand to a global force.
+          </h2>
+          <p className="mt-6 text-lg font-medium text-dark-muted">Here's what that looks like:</p>
+        </div>
 
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { icon: PiggyBank, title: "Increased Revenue" },
-              { icon: TrendingUp, title: "Greater Impact" },
-              { icon: File, title: "More Job Opportunities" },
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="backdrop-blur-lg bg-white/10 border border-white/20 shadow-md rounded-2xl p-6 text-center transition-transform transform hover:scale-105 hover:shadow-xl"
-              >
-                <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#03192F] text-white mb-4 animate-glow">
-                  <feature.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold text-dark-text">{feature.title}</h3>
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { icon: PiggyBank, title: "Increased Revenue" },
+            { icon: TrendingUp, title: "Greater Impact" },
+            { icon: File, title: "More Job Opportunities" },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="backdrop-blur-lg bg-white/10 border border-white/20 shadow-md rounded-2xl p-10 text-center transition-transform transform hover:scale-105 hover:shadow-xl"
+            >
+              <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#03192F] text-white mb-4 animate-glow">
+                <feature.icon className="w-6 h-6 text-primary" />
               </div>
-            ))}
-          </div>
+              <h3 className="text-xl font-semibold text-dark-text">{feature.title}</h3>
+            </div>
+          ))}
         </div>
       </div>
     </section>

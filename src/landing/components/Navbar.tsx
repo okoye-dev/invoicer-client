@@ -37,17 +37,20 @@ const Navbar = () => {
                 Features <ChevronDown size={16} />
               </div>
               <div className="absolute top-10 left-0 w-64 bg-white rounded-lg shadow-lg z-50 p-2 flex flex-col gap-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link to="/ReceiptForm" className="no-underline">
+                <Link to="/invoiceForm" className="no-underline">
                   <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 cursor-pointer">
                     <FileText size={16} /> Smart Invoicing
                   </div>
                 </Link>
+                <Link to="/clientManagement" className="no-underline">
                 <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 cursor-pointer">
                   <Users size={16} /> Client Management
                 </div>
+                </Link>
+                <Link to="/financialReporting">
                 <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 cursor-pointer">
                   <BarChart2 size={16} /> Financial Reporting
-                </div>
+                </div></Link>
               </div>
             </div>
 
@@ -77,7 +80,6 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Burger Icon */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
@@ -89,7 +91,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-[#03192F] mt-2 px-4 py-4 rounded-b-2xl shadow-lg border-t border-white/10 space-y-4 transition-all duration-300">
           <Link to="/dashboard" className="block text-white hover:text-indigo-400 text-base font-medium">
@@ -97,7 +98,7 @@ const Navbar = () => {
           </Link>
           <div className="space-y-2">
             <div className="text-white font-medium">Features</div>
-            <Link to="/ReceiptForm" className="block text-sm text-white hover:text-indigo-400 pl-3">
+            <Link to="/invoiceForm" className="block text-sm text-white hover:text-indigo-400 pl-3">
               Smart Invoicing
             </Link>
             <div className="block text-sm text-white hover:text-indigo-400 pl-3">
