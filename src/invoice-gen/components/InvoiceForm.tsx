@@ -67,7 +67,7 @@ export const InvoiceForm = () => {
           </div>
 
           <div className="bg-white shadow-sm rounded-xl p-6 w-full lg:w-1/2">
-            <h2 className="text-xl font-bold mb-4"> Saved Invoices</h2>
+            <h2 className="text-xl font-bold mb-4"> Past Invoices</h2>
             {invoiceList.length === 0 ? (
               <p className="text-gray-500 text-sm">No saved invoices yet.</p>
             ) : (
@@ -148,7 +148,7 @@ export const InvoiceForm = () => {
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">📦 Invoice Items</h2>
+            <h2 className="text-xl font-semibold mb-4"> Invoice Items</h2>
             {fields.map((field, index) => (
               <div key={field.id} className="grid grid-cols-12 gap-4 items-end mb-4">
                 <div className="col-span-5">

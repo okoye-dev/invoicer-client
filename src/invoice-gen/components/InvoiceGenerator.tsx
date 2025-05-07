@@ -31,7 +31,7 @@ export const InvoiceGenerator = ({ config }: InvoiceGeneratorProps) => {
       <h2 className="text-xl mb-4 font-bold">Receipt Generator</h2>
       <button
         onClick={handleGenerate}
-        className="p-2 bg-purple-400 text-white rounded-[20px] w-full disabled:opacity-50"
+        className="p-2 bg-green-600 hover:bg-green-700 text-white rounded-[20px] w-full disabled:opacity-50"
         disabled={!config || isGenerating}
       >
         {isGenerating ? "Generating..." : "Download Receipt"}

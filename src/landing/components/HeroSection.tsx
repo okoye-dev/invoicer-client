@@ -8,16 +8,13 @@ const HeroSection = () => {
     <section className="relative sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-[100px]">
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-dark-text tracking-tight leading-tight">
-            Built To Take Your Business From Surviving To{" "}
-            <span className=" bg-clip-text bg-gradient-to-r from-primary to-blue-500">
-              Booming
-            </span>
-          </h1>
+        <h1 className="text-4xl md:text-6xl font-extrabold font-clash text-dark-text tracking-tight leading-tight">
+  Built To Take Your Business From Surviving To{" "}
+  <span className=" bg-clip-text bg-gradient-to-r from-primary to-blue-500">
+    Booming
+  </span>
+</h1>
 
-          <p className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-dark-muted opacity-90">
-            Easily manage your bookkeeping, send invoices quickly, and seamlessly connect with customers.
-          </p>
 
           <div className="mt-8 flex justify-center">
             <Link to="/ReceiptForm">
@@ -25,7 +22,7 @@ const HeroSection = () => {
                 variant="outline"
                 className="bg-[#03192F] text-white px-8 py-4 text-base font-semibold rounded-2xl transition-transform transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                 Create an Invoice
+                 Quick Invoice
               </Button>
             </Link>
           </div>

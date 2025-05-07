@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@fontsource/inter";
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@700&display=swap');
 @import "tw-animate-css";
 
 html,
@@ -9,7 +9,7 @@ body,
   padding: 0;
   height: 100%;  
   width: 100%;   
-  font-family: "Inter", sans-serif;
+  font-family: "Clash Display", sans-serif;
   
 }
 
