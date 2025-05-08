@@ -8,18 +8,26 @@ import { useReceiptFormFields } from "../constants/useFieldArray";
 import { useReceiptForm } from "@/invoice-gen/hooks/useReceiptForm";
 import { InvoiceGenerator } from "@/invoice-gen/components/InvoiceGenerator";
 import { UploadCloud, PlusCircle, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const InvoiceForm = () => {
+  const navigate = useNavigate();
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
   const { form, onSubmit, invoiceConfig } = useReceiptForm(logoPreview || undefined);
   const { fields, append, remove } = useReceiptFormFields(form.control);
 
   const [invoiceList, setInvoiceList] = useState<any[]>([]);
-  const [selectedInvoice, setSelectedInvoice] = useState<any | null>(null);
 
   const handleSubmit = (data: any) => {
-    onSubmit(data);
-    setInvoiceList((prev) => [...prev, data]);
+    const id = crypto.randomUUID(); 
+    const newInvoice = { ...data, id, logo: logoPreview };
+
+    setInvoiceList((prev) => [...prev, newInvoice]);
+    onSubmit(data); 
+  };
+
+  const handleViewInvoice = (invoice: any) => {
+    navigate(`/invoice/${invoice.id}`, { state: { invoice } });
   };
 
   return (
@@ -32,6 +40,7 @@ export const InvoiceForm = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
+          {/* Logo Upload Section */}
           <div className="bg-white shadow-sm rounded-xl p-6 w-full lg:w-1/2">
             <Label className="text-md font-medium mb-2 block">Company Logo</Label>
             <div
@@ -66,17 +75,18 @@ export const InvoiceForm = () => {
             )}
           </div>
 
+          {/* Past Invoices Section */}
           <div className="bg-white shadow-sm rounded-xl p-6 w-full lg:w-1/2">
-            <h2 className="text-xl font-bold mb-4"> Past Invoices</h2>
+            <h2 className="text-xl font-bold mb-4">Past Invoices</h2>
             {invoiceList.length === 0 ? (
               <p className="text-gray-500 text-sm">No saved invoices yet.</p>
             ) : (
               <ul className="grid gap-4 max-h-[200px] overflow-y-auto pr-2">
-                {invoiceList.map((invoice, index) => (
+                {invoiceList.map((invoice) => (
                   <li
-                    key={index}
+                    key={invoice.id}
                     className="border p-3 rounded-lg shadow-sm cursor-pointer hover:bg-gray-50 transition"
-                    onClick={() => setSelectedInvoice(invoice)}
+                    onClick={() => handleViewInvoice(invoice)}
                   >
                     <p className="text-gray-700 font-semibold">Invoice #{invoice.invoiceNumber}</p>
                     <p className="text-sm text-gray-500">
@@ -97,7 +107,9 @@ export const InvoiceForm = () => {
           </div>
         </div>
 
+        {/* Form Section */}
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-10 mt-10">
+          {/* Company and Customer Info */}
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
               <h2 className="text-lg font-semibold text-gray-800">Company Information</h2>
@@ -116,7 +128,7 @@ export const InvoiceForm = () => {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
-              <h2 className="text-lg font-semibold text-gray-800">👤 Customer Information</h2>
+              <h2 className="text-lg font-semibold text-gray-800">Customer Information</h2>
               <div>
                 <Label>Name</Label>
                 <Input className="mt-2" {...form.register("customerName")} />
@@ -128,6 +140,7 @@ export const InvoiceForm = () => {
             </div>
           </div>
 
+          {/* Invoice Meta */}
           <div className="bg-white p-6 rounded-xl shadow-sm grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
               <Label>Invoice Number</Label>
@@ -147,8 +160,9 @@ export const InvoiceForm = () => {
             </div>
           </div>
 
+          {/* Invoice Items */}
           <div className="bg-white p-6 rounded-xl shadow-sm">
-            <h2 className="text-xl font-semibold mb-4"> Invoice Items</h2>
+            <h2 className="text-xl font-semibold mb-4">Invoice Items</h2>
             {fields.map((field, index) => (
               <div key={field.id} className="grid grid-cols-12 gap-4 items-end mb-4">
                 <div className="col-span-5">
@@ -194,11 +208,13 @@ export const InvoiceForm = () => {
             </div>
           </div>
 
+          {/* Thank You Message */}
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <Label className="block text-md font-medium mb-2">Thank You Message</Label>
             <Textarea {...form.register("thankYouMessage")} placeholder="e.g., Thank you for your business!" />
           </div>
 
+          {/* Submit */}
           <div className="text-right">
             <Button type="submit" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-3">
               Generate Invoice
@@ -206,35 +222,7 @@ export const InvoiceForm = () => {
           </div>
         </form>
 
-        {selectedInvoice && (
-          <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-            <div className="bg-white p-6 rounded-xl max-w-lg w-full shadow-lg relative">
-              <button
-                onClick={() => setSelectedInvoice(null)}
-                className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <h3 className="text-xl font-bold mb-4">Invoice #{selectedInvoice.invoiceNumber}</h3>
-              <p className="mb-2">Company: {selectedInvoice.companyName}</p>
-              <p className="mb-2">Customer: {selectedInvoice.customerName}</p>
-              <p className="mb-4">Date: {selectedInvoice.invoiceDate}</p>
-              <ul className="space-y-2">
-                {selectedInvoice.items.map((item: any, idx: number) => (
-                  <li key={idx} className="flex justify-between">
-                    <span>{item.name}</span>
-                    <span>₦{(item.price * item.quantity).toFixed(2)}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 font-semibold text-right">
-                Total: ₦
-                {selectedInvoice.items.reduce((acc: number, item: any) => acc + item.price * item.quantity, 0).toFixed(2)}
-              </p>
-            </div>
-          </div>
-        )}
-
+        {/* Preview */}
         {invoiceConfig && (
           <div className="mt-12 bg-white p-6 rounded-xl shadow-sm">
             <InvoiceGenerator config={invoiceConfig} />
