@@ -5,8 +5,8 @@ import hero from "@/assets/dashboard.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative sm:pt-24 sm:pb-20 md:pt-32 md:pb-24 overflow-hidden">
-      <div className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 mt-[100px]">
+    <section className="relative overflow-hidden">
+      <div className="max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8 mt-[200px]">
         <div className="flex flex-col md:flex-row items-center md:justify-between gap-12">
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-extrabold font-clash text-dark-text tracking-tight leading-tight">
@@ -32,7 +32,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2">
+          <div className="w-full mt-10">
             <div className="rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <img
                 src={hero}
@@ -53,23 +53,46 @@ const HeroSection = () => {
           <p className="mt-6 text-lg font-medium text-dark-muted">Here's what that looks like:</p>
         </div>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { icon: PiggyBank, title: "Increased Revenue" },
-            { icon: TrendingUp, title: "Greater Impact" },
-            { icon: File, title: "More Job Opportunities" },
-          ].map((feature, index) => (
-            <div
-              key={index}
-              className="backdrop-blur-lg bg-white/10 border border-white/20 shadow-md rounded-2xl p-10 text-center transition-transform transform hover:scale-105 hover:shadow-xl"
-            >
-              <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#03192F] text-white mb-4 animate-glow">
-                <feature.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold text-dark-text">{feature.title}</h3>
-            </div>
-          ))}
+        <div className="mt-16">
+  {/* Carousel for small screens */}
+  <div className="flex overflow-x-auto space-x-4 md:hidden px-2">
+    {[
+      { icon: PiggyBank, title: "Increased Revenue" },
+      { icon: TrendingUp, title: "Greater Impact" },
+      { icon: File, title: "More Job Opportunities" },
+    ].map((feature, index) => (
+      <div
+        key={index}
+        className="min-w-[80%] flex-shrink-0 backdrop-blur-lg bg-white/10 border border-white/20 shadow-md rounded-2xl p-8 text-center transition-transform transform hover:scale-105 hover:shadow-xl"
+      >
+        <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#03192F] text-white mb-4 animate-glow">
+          <feature.icon className="w-6 h-6 text-primary" />
         </div>
+        <h3 className="text-xl font-semibold text-dark-text">{feature.title}</h3>
+      </div>
+    ))}
+  </div>
+
+  {/* Grid for medium and up */}
+  <div className="hidden md:grid grid-cols-3 gap-8">
+    {[
+      { icon: PiggyBank, title: "Increased Revenue" },
+      { icon: TrendingUp, title: "Greater Impact" },
+      { icon: File, title: "More Job Opportunities" },
+    ].map((feature, index) => (
+      <div
+        key={index}
+        className="backdrop-blur-lg bg-white/10 border border-white/20 shadow-md rounded-2xl p-10 text-center transition-transform transform hover:scale-105 hover:shadow-xl"
+      >
+        <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-[#03192F] text-white mb-4 animate-glow">
+          <feature.icon className="w-6 h-6 text-primary" />
+        </div>
+        <h3 className="text-xl font-semibold text-dark-text">{feature.title}</h3>
+      </div>
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

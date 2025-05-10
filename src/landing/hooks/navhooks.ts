@@ -1,19 +1,21 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const useNavbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const iconRef = useRef<HTMLButtonElement | null>(null);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        iconRef.current &&
+        !iconRef.current.contains(event.target as Node)
       ) {
-        setIsDropdownOpen(false);
+        setIsMenuOpen(false);
       }
     };
 
@@ -21,12 +23,5 @@ export const useNavbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  return {
-    isMenuOpen,
-    setIsMenuOpen,
-    isDropdownOpen,
-    setIsDropdownOpen,
-    toggleMenu,
-    dropdownRef,
-  };
+  return { isMenuOpen, setIsMenuOpen, toggleMenu, menuRef, iconRef };
 };

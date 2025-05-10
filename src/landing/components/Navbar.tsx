@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const Navbar = () => {
-  const { isMenuOpen, toggleMenu, setIsMenuOpen } = useNavbar();
+  const { isMenuOpen, toggleMenu, setIsMenuOpen, menuRef, iconRef } = useNavbar();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,14 +43,15 @@ const Navbar = () => {
                   </div>
                 </Link>
                 <Link to="/clientManagement" className="no-underline">
-                <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 cursor-pointer">
-                  <Users size={16} /> Client Management
-                </div>
+                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 cursor-pointer">
+                    <Users size={16} /> Client Management
+                  </div>
                 </Link>
-                <Link to="/financialReporting">
-                <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 cursor-pointer">
-                  <BarChart2 size={16} /> Financial Reporting
-                </div></Link>
+                <Link to="/financialReporting" className="no-underline">
+                  <div className="flex items-center gap-3 px-4 py-2 text-sm text-gray-800 rounded-md hover:bg-gray-100 hover:text-indigo-600 cursor-pointer">
+                    <BarChart2 size={16} /> Financial Reporting
+                  </div>
+                </Link>
               </div>
             </div>
 
@@ -82,6 +83,7 @@ const Navbar = () => {
 
           <div className="md:hidden">
             <button
+              ref={iconRef}
               onClick={toggleMenu}
               className="p-2 rounded-md focus:outline-none text-white"
             >
@@ -92,7 +94,10 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden bg-[#03192F] mt-2 px-4 py-4 rounded-b-2xl shadow-lg border-t border-white/10 space-y-4 transition-all duration-300">
+        <div
+          ref={menuRef}
+          className="md:hidden bg-[#03192F] mt-2 px-4 py-4 rounded-b-2xl shadow-lg border-t border-white/10 space-y-4 transition-all duration-300"
+        >
           <Link to="/dashboard" className="block text-white hover:text-indigo-400 text-base font-medium">
             Home
           </Link>
@@ -101,12 +106,12 @@ const Navbar = () => {
             <Link to="/invoiceForm" className="block text-sm text-white hover:text-indigo-400 pl-3">
               Smart Invoicing
             </Link>
-            <div className="block text-sm text-white hover:text-indigo-400 pl-3">
+            <Link to="/clientManagement" className="block text-sm text-white hover:text-indigo-400 pl-3">
               Client Management
-            </div>
-            <div className="block text-sm text-white hover:text-indigo-400 pl-3">
+            </Link>
+            <Link to="/financialReporting" className="block text-sm text-white hover:text-indigo-400 pl-3">
               Financial Reporting
-            </div>
+            </Link>
           </div>
           <div className="block text-white hover:text-indigo-400 text-base font-medium">Programs</div>
           <div className="block text-white hover:text-indigo-400 text-base font-medium">Blogs</div>
