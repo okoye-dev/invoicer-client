@@ -96,7 +96,8 @@ const Navbar = () => {
       {isMenuOpen && (
         <div
           ref={menuRef}
-          className="md:hidden bg-[#03192F] mt-2 px-4 py-4 rounded-b-2xl shadow-lg border-t border-white/10 space-y-4 transition-all duration-300"
+          className="md:hidden bg-[#03192F] w-full mt-2 px-4 py-4 rounded-b-2xl space-y-2 transition-transform duration-300 transform translate-y-0"
+          
         >
           <Link to="/dashboard" className="block text-white hover:text-indigo-400 text-base font-medium">
             Home

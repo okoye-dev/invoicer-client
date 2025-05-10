@@ -33,14 +33,13 @@ export const InvoiceForm = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen pt-[130px] px-4 md:px-10 max-w-6xl mx-auto">
+      <div className="min-h-screen pt-[150px] px-4 md:px-10 max-w-6xl mx-auto">
         <div className="mb-10">
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Create a Receipt</h1>
           <p className="text-gray-600 mt-2 text-lg">Fill in the details to generate a sleek, professional receipt.</p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6">
-          {/* Logo Upload Section */}
           <div className="bg-white shadow-sm rounded-xl p-6 w-full lg:w-1/2">
             <Label className="text-md font-medium mb-2 block">Company Logo</Label>
             <div
@@ -75,7 +74,6 @@ export const InvoiceForm = () => {
             )}
           </div>
 
-          {/* Past Invoices Section */}
           <div className="bg-white shadow-sm rounded-xl p-6 w-full lg:w-1/2">
             <h2 className="text-xl font-bold mb-4">Past Invoices</h2>
             {invoiceList.length === 0 ? (
@@ -107,11 +105,9 @@ export const InvoiceForm = () => {
           </div>
         </div>
 
-        {/* Form Section */}
         <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-10 mt-10">
-          {/* Company and Customer Info */}
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
+            <div className="bg-white p-20 rounded-xl shadow-sm space-y-4">
               <h2 className="text-lg font-semibold text-gray-800">Company Information</h2>
               <div>
                 <Label>Company Name</Label>
@@ -127,7 +123,7 @@ export const InvoiceForm = () => {
               </div>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-sm space-y-4">
+            <div className="bg-white p-20 rounded-xl shadow-sm space-y-4">
               <h2 className="text-lg font-semibold text-gray-800">Customer Information</h2>
               <div>
                 <Label>Name</Label>
@@ -140,8 +136,7 @@ export const InvoiceForm = () => {
             </div>
           </div>
 
-          {/* Invoice Meta */}
-          <div className="bg-white p-6 rounded-xl shadow-sm grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="bg-white p-20 rounded-xl shadow-sm grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
               <Label>Invoice Number</Label>
               <Input className="mt-2" {...form.register("invoiceNumber")} />
@@ -160,61 +155,59 @@ export const InvoiceForm = () => {
             </div>
           </div>
 
-          {/* Invoice Items */}
-          <div className="bg-white p-6 rounded-xl shadow-sm">
-            <h2 className="text-xl font-semibold mb-4">Invoice Items</h2>
-            {fields.map((field, index) => (
-              <div key={field.id} className="grid grid-cols-12 gap-4 items-end mb-4">
-                <div className="col-span-5">
-                  <Label>Item</Label>
-                  <Input placeholder="e.g., Product A" {...form.register(`items.${index}.name`)} />
-                </div>
-                <div className="col-span-2">
-                  <Label>Price</Label>
-                  <Input type="number" {...form.register(`items.${index}.price`)} />
-                </div>
-                <div className="col-span-2">
-                  <Label>Quantity</Label>
-                  <Input type="number" {...form.register(`items.${index}.quantity`)} />
-                </div>
-                <div className="col-span-3 flex justify-end">
-                  <Button
-                    type="button"
-                    variant="destructive"
-                    className="mt-5"
-                    onClick={() => remove(index)}
-                  >
-                    <X className="w-4 h-4 mr-1" />
-                    Remove
-                  </Button>
-                </div>
-              </div>
-            ))}
-            <Button
-              type="button"
-              onClick={() => append({ name: "", price: "", quantity: "" })}
-              className="mt-4 bg-green-600 hover:bg-green-700 text-white"
-            >
-              <PlusCircle className="w-4 h-4 mr-2" />
-              Add Item
-            </Button>
-            <div className="text-right mt-6 text-lg font-semibold text-gray-700">
-              Total: ₦
-              {fields.reduce((acc, _item, idx) => {
-                const price = parseFloat(form.getValues(`items.${idx}.price`) || "0");
-                const quantity = parseFloat(form.getValues(`items.${idx}.quantity`) || "0");
-                return acc + price * quantity;
-              }, 0).toFixed(2)}
-            </div>
-          </div>
+          <div className="bg-white p-20 rounded-xl shadow-sm">
+  <h2 className="text-xl font-semibold mb-4">Invoice Items</h2>
+  {fields.map((field, index) => (
+    <div key={field.id} className="grid grid-cols-1 sm:grid-cols-12 gap-4 items-end mb-4">
+      <div className="sm:col-span-5">
+        <Label>Item</Label>
+        <Input placeholder="e.g., Product A" {...form.register(`items.${index}.name`)} />
+      </div>
+      <div className="sm:col-span-2">
+        <Label>Price</Label>
+        <Input type="number" {...form.register(`items.${index}.price`)} />
+      </div>
+      <div className="sm:col-span-2">
+        <Label>Quantity</Label>
+        <Input type="number" {...form.register(`items.${index}.quantity`)} />
+      </div>
+      <div className="sm:col-span-3 flex justify-end">
+        <Button
+          type="button"
+          variant="destructive"
+          className="mt-5"
+          onClick={() => remove(index)}
+        >
+          <X className="w-4 h-4 mr-1" />
+          Remove
+        </Button>
+      </div>
+    </div>
+  ))}
+  <Button
+    type="button"
+    onClick={() => append({ name: "", price: "", quantity: "" })}
+    className="mt-4 bg-green-600 hover:bg-green-700 text-white"
+  >
+    <PlusCircle className="w-4 h-4 mr-2" />
+    Add Item
+  </Button>
+  <div className="text-right mt-6 text-lg font-semibold text-gray-700">
+    Total: ₦
+    {fields.reduce((acc, _item, idx) => {
+      const price = parseFloat(form.getValues(`items.${idx}.price`) || "0");
+      const quantity = parseFloat(form.getValues(`items.${idx}.quantity`) || "0");
+      return acc + price * quantity;
+    }, 0).toFixed(2)}
+  </div>
+</div>
 
-          {/* Thank You Message */}
-          <div className="bg-white p-6 rounded-xl shadow-sm">
+
+          <div className="bg-white p-10 rounded-xl shadow-sm">
             <Label className="block text-md font-medium mb-2">Thank You Message</Label>
             <Textarea {...form.register("thankYouMessage")} placeholder="e.g., Thank you for your business!" />
           </div>
 
-          {/* Submit */}
           <div className="text-right">
             <Button type="submit" className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-3">
               Generate Invoice
@@ -222,7 +215,6 @@ export const InvoiceForm = () => {
           </div>
         </form>
 
-        {/* Preview */}
         {invoiceConfig && (
           <div className="mt-12 bg-white p-6 rounded-xl shadow-sm">
             <InvoiceGenerator config={invoiceConfig} />

@@ -13,8 +13,9 @@ const Footer = () => {
               invoicer-client 
             </Link>
             <p className="mt-4 text-dark-muted text-sm">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, facilis! Consectetur esse, impedit vel odio nemo vitae minima iure corrupti! Cupiditate tempora accusantium explicabo id cumque reiciendis quia velit perferendis..
-            </p>
+  Take control of your business finances with ease — generate invoices, monitor spending, and gain insights to grow smarter and faster. Built for entrepreneurs, freelancers, and small teams who mean business.
+</p>
+
           </div>
 
           <div>

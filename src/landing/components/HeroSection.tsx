@@ -54,7 +54,6 @@ const HeroSection = () => {
         </div>
 
         <div className="mt-16">
-  {/* Carousel for small screens */}
   <div className="flex overflow-x-auto space-x-4 md:hidden px-2">
     {[
       { icon: PiggyBank, title: "Increased Revenue" },
@@ -73,7 +72,6 @@ const HeroSection = () => {
     ))}
   </div>
 
-  {/* Grid for medium and up */}
   <div className="hidden md:grid grid-cols-3 gap-8">
     {[
       { icon: PiggyBank, title: "Increased Revenue" },

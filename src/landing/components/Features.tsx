@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import features from "@/landing/constants/features";
 
 const FeaturesSection = () => {
+  const [visibleFeatures, setVisibleFeatures] = useState(features);
+
+  useEffect(() => {
+    const updateFeatures = () => {
+      const isSmallScreen = window.innerWidth < 768; 
+      setVisibleFeatures(isSmallScreen ? features.slice(0, 3) : features);
+    };
+
+    updateFeatures(); 
+    window.addEventListener("resize", updateFeatures); 
+
+    return () => window.removeEventListener("resize", updateFeatures);
+  }, []);
+
   return (
     <div id="features" className="py-16 sm:py-24 bg-dark-background relative">
       <div className="absolute inset-0 overflow-hidden -z-10">
@@ -18,14 +33,13 @@ const FeaturesSection = () => {
             Ready To Ring in Huge Capital
           </p>
           <p className="mt-4 max-w-2xl text-base md:text-lg text-dark-muted mx-auto opacity-90">
-            Our platform is designed to help you master new skills
-            faster and more effectively by helping you manage and track your expenses.
+            Our platform is designed to help you master new skills faster and more effectively by helping you manage and track your expenses.
           </p>
         </div>
 
         <div className="mt-16">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
+            {visibleFeatures.map((feature) => (
               <div
                 key={feature.name}
                 className="relative p-6 glass-card rounded-lg hover:shadow-lg transition-all overflow-hidden group"

@@ -24,7 +24,7 @@ const TestimonialsSection = () => {
   const testimonialsToShow = getTestimonialsToShow();
 
   return (
-    <div className="py-16 sm:py-24 bg-gradient-to-br from-dark-background to-dark-card/30 relative">
+    <div className="py-16 hidden md:block sm:py-24 bg-gradient-to-br from-dark-background  to-dark-card/30 relative">
       <div className="absolute inset-0 overflow-hidden -z-10">
         <div className="absolute top-0 left-0 w-full h-full bg-mesh-gradient opacity-40 animate-pulse-slow"></div>
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-600/70 rounded-full animate-pulse-slow"></div>
