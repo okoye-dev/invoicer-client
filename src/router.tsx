@@ -15,8 +15,8 @@ export const AppRoutes = () => {
     <BrowserRouter>
       <Layout>
       <Routes>
-        <Route path="/" element={<SignUp />}/>
-        <Route path="/signup" element={<SignUp />}/>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/signup" element={<SignUp />}/>
         <Route path="/dashboard" element={<LandingPage />}/>
         <Route path="/invoiceForm" element={<InvoiceForm />} />
         <Route path="/pricing" element={<Pricing />} />
