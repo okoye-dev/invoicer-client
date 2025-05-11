@@ -33,7 +33,7 @@ export const InvoiceForm = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen pt-[150px] px-4 md:px-10 max-w-6xl mx-auto">
+      <div className="min-h-screen pt-[10px] px-4 md:px-10 max-w-6xl mx-auto">
         <div className="mb-10">
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">Create a Receipt</h1>
           <p className="text-gray-600 mt-2 text-lg">Fill in the details to generate a sleek, professional receipt.</p>

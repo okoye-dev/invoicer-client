@@ -9,6 +9,7 @@ import {
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
+import Navbar from "@/landing/components/Navbar";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -54,13 +55,12 @@ const ClientManagementPage = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-16 px-6">
+    <><Navbar /><div className="max-w-6xl mx-auto py-16 px-6">
       <h1 className="text-4xl font-bold mb-10 text-center text-gray-800">
         Client Financial Overview
       </h1>
 
       <div className="grid md:grid-cols-2 gap-8 mb-12">
-        {/* Input Form */}
         <div className="bg-white p-6 rounded-xl shadow-lg">
           <h2 className="text-2xl font-semibold mb-4 text-gray-700">Add Transaction</h2>
 
@@ -72,8 +72,7 @@ const ClientManagementPage = () => {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                placeholder="e.g. 5000"
-              />
+                placeholder="e.g. 5000" />
             </div>
 
             <div>
@@ -82,8 +81,7 @@ const ClientManagementPage = () => {
                 id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="e.g. Office Rent"
-              />
+                placeholder="e.g. Office Rent" />
             </div>
 
             {type === "expense" && (
@@ -123,7 +121,6 @@ const ClientManagementPage = () => {
           </div>
         </div>
 
-        {/* Chart */}
         <div className="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center">
           <h2 className="text-2xl font-semibold mb-4 text-gray-700">Spending vs Profit</h2>
           <Pie data={chartData} />
@@ -138,7 +135,6 @@ const ClientManagementPage = () => {
         </div>
       </div>
 
-      {/* Transaction Lists */}
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <h3 className="text-xl font-semibold mb-3 text-gray-700">All Expenses</h3>
@@ -167,7 +163,7 @@ const ClientManagementPage = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </div></>
   );
 };
 
