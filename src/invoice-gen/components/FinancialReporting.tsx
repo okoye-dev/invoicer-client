@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,6 +12,7 @@ import {
 import { Line, Pie } from "react-chartjs-2";
 import { Card } from "@/shared/components/ui/card";
 import Navbar from "@/landing/components/Navbar";
+import { useFinancialReporting } from "../hooks/useFinancialReporting";
 
 ChartJS.register(
   CategoryScale,
@@ -25,72 +25,19 @@ ChartJS.register(
   Title
 );
 
-const mockData = [
-  { date: "2025-05-01", type: "income", amount: 80000 },
-  { date: "2025-05-02", type: "expense", category: "Marketing", amount: 20000 },
-  { date: "2025-05-03", type: "expense", category: "Salaries", amount: 30000 },
-  { date: "2025-05-04", type: "income", amount: 50000 },
-  { date: "2025-05-05", type: "expense", category: "Misc", amount: 10000 },
-];
-
 const FinancialReportingPage = () => {
-  const [transactions] = useState(mockData);
-
-  const incomeData = transactions
-    .filter((t) => t.type === "income")
-    .map((t) => ({ date: t.date, amount: t.amount }));
-
-  const expenseData = transactions
-    .filter((t) => t.type === "expense")
-    .map((t) => ({ date: t.date, amount: t.amount }));
-
-  const totalIncome = incomeData.reduce((acc, cur) => acc + cur.amount, 0);
-  const totalExpense = expenseData.reduce((acc, cur) => acc + cur.amount, 0);
-  const netProfit = totalIncome - totalExpense;
-
-  const categoryTotals = transactions
-    .filter((t) => t.type === "expense")
-    .reduce((acc: Record<string, number>, curr) => {
-      const cat = curr.category || "Misc";
-      acc[cat] = (acc[cat] || 0) + curr.amount;
-      return acc;
-    }, {});
-
-  const pieData = {
-    labels: Object.keys(categoryTotals),
-    datasets: [
-      {
-        label: "Expenses by Category",
-        data: Object.values(categoryTotals),
-        backgroundColor: ["#F87171", "#60A5FA", "#FBBF24", "#34D399"],
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  const lineData = {
-    labels: transactions.map((t) => t.date),
-    datasets: [
-      {
-        label: "Income",
-        data: transactions.map((t) => (t.type === "income" ? t.amount : 0)),
-        fill: false,
-        borderColor: "#3B82F6",
-        tension: 0.3,
-      },
-      {
-        label: "Expense",
-        data: transactions.map((t) => (t.type === "expense" ? t.amount : 0)),
-        fill: false,
-        borderColor: "#EF4444",
-        tension: 0.3,
-      },
-    ],
-  };
+  const {
+    transactions,
+    totalIncome,
+    totalExpense,
+    netProfit,
+    pieData,
+    lineData,
+  } = useFinancialReporting();
 
   return (
-    <><Navbar></Navbar><div className="max-w-7xl mx-auto p-8">
-          <h1 className="text-3xl font-bold text-gray-800 mt-[120px] mb-3"> Financial Reporting</h1>
+    <><Navbar></Navbar><div className="max-w-7xl mt-[-20] mx-auto p-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-3"> Financial Reporting</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
               <Card className="p-4 shadow-lg rounded-xl bg-blue-50">

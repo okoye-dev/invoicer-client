@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Pie } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -10,37 +9,26 @@ import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
 import Navbar from "@/landing/components/Navbar";
+import { useClientManagement } from "../hooks/useClientManagement";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-type Expense = {
-  amount: number;
-  description: string;
-  category: string;
-};
-
 const ClientManagementPage = () => {
-  const [expenses, setExpenses] = useState<Expense[]>([]);
-  const [invoices, setInvoices] = useState<Expense[]>([]);
-  const [amount, setAmount] = useState("");
-  const [description, setDescription] = useState("");
-  const [type, setType] = useState("expense");
-  const [category, setCategory] = useState("Miscellaneous");
-
-  const handleAdd = () => {
-    const num = parseFloat(amount);
-    if (!isNaN(num) && description.trim()) {
-      const entry = { amount: num, description, category };
-      if (type === "expense") setExpenses([...expenses, entry]);
-      else setInvoices([...invoices, entry]);
-      setAmount("");
-      setDescription("");
-      setCategory("Miscellaneous");
-    }
-  };
-
-  const totalExpenses = expenses.reduce((sum, item) => sum + item.amount, 0);
-  const totalInvoices = invoices.reduce((sum, item) => sum + item.amount, 0);
+  const {
+    expenses,
+    invoices,
+    amount,
+    description,
+    type,
+    category,
+    setAmount,
+    setDescription,
+    setType,
+    setCategory,
+    handleAdd,
+    totalExpenses,
+    totalInvoices,
+  } = useClientManagement();
 
   const chartData = {
     labels: ["Expenses", "Invoices (Profit)"],
@@ -115,7 +103,7 @@ const ClientManagementPage = () => {
               </select>
             </div>
 
-            <Button className="w-full mt-2" onClick={handleAdd}>
+            <Button className="w-full bg-amber-600 mt-2" onClick={handleAdd}>
               Add Entry
             </Button>
           </div>
